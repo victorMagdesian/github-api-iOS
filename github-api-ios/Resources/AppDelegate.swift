@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = ViewController()
+        window.rootViewController = FiltroController()
         self.window = window
         window.makeKeyAndVisible()
 
