@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FiltroController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
