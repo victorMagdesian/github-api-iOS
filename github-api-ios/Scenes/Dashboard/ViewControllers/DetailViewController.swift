@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailController: UIViewController {
+class DetailViewController: UIViewController {
 
     override var nibName: String? {
         "DetailController"
