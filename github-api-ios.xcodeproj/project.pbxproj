@@ -113,6 +113,7 @@
 				4EEC0F49275D363000DDC36D /* Views */,
 				4EEC0F48275D362400DDC36D /* Models */,
 				4EEC0F47275D361A00DDC36D /* ViewControllers */,
+				4EFF7C3C275AB7DF00016E16 /* Info.plist */,
 			);
 			path = Home;
 			sourceTree = "<group>";
