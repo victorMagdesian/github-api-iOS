@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EFE67E7275D082D00172105 /* FiltroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE67E6275D082D00172105 /* FiltroController.xib */; };
+		4E0DD649275E8BB20032B8B1 /* FiltroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DD648275E8BB20032B8B1 /* FiltroController.swift */; };
+		4E0DD64B275E8BF70032B8B1 /* FiltroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0DD64A275E8BF70032B8B1 /* FiltroController.xib */; };
 		4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C2E275AB7DE00016E16 /* AppDelegate.swift */; };
 		4EFF7C31275AB7DE00016E16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C30275AB7DE00016E16 /* SceneDelegate.swift */; };
-		4EFF7C33275AB7DE00016E16 /* FiltroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C32275AB7DE00016E16 /* FiltroController.swift */; };
 		4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFF7C37275AB7DF00016E16 /* Assets.xcassets */; };
 		8C4D9B09275EB17E00A2E3D3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B08275EB17E00A2E3D3 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4EFE67E6275D082D00172105 /* FiltroController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltroController.xib; sourceTree = "<group>"; };
+		4E0DD648275E8BB20032B8B1 /* FiltroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroController.swift; sourceTree = "<group>"; };
+		4E0DD64A275E8BF70032B8B1 /* FiltroController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FiltroController.xib; path = "github-api-ios/Scenes/Home/ViewControllers/FiltroController.xib"; sourceTree = SOURCE_ROOT; };
 		4EFF7C2B275AB7DE00016E16 /* github-api-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "github-api-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFF7C2E275AB7DE00016E16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EFF7C30275AB7DE00016E16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4EFF7C32275AB7DE00016E16 /* FiltroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroController.swift; sourceTree = "<group>"; };
 		4EFF7C37275AB7DF00016E16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EFF7C3C275AB7DF00016E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C4D9B08275EB17E00A2E3D3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		4EEC0F47275D361A00DDC36D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4EFF7C32275AB7DE00016E16 /* FiltroController.swift */,
+				4E0DD648275E8BB20032B8B1 /* FiltroController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -56,7 +56,6 @@
 		4EEC0F49275D363000DDC36D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4EFE67E6275D082D00172105 /* FiltroController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -64,6 +63,7 @@
 		4EEC0F4A275D364100DDC36D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4E0DD64A275E8BF70032B8B1 /* FiltroController.xib */,
 			);
 			name = ViewModels;
 			path = ../ViewModels;
@@ -113,7 +113,6 @@
 				4EEC0F49275D363000DDC36D /* Views */,
 				4EEC0F48275D362400DDC36D /* Models */,
 				4EEC0F47275D361A00DDC36D /* ViewControllers */,
-				4EFF7C3C275AB7DF00016E16 /* Info.plist */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -193,8 +192,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EFE67E7275D082D00172105 /* FiltroController.xib in Resources */,
 				4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */,
+				4E0DD64B275E8BF70032B8B1 /* FiltroController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,8 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EFF7C33275AB7DE00016E16 /* FiltroController.swift in Sources */,
 				4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */,
+				4E0DD649275E8BB20032B8B1 /* FiltroController.swift in Sources */,
 				4EFF7C31275AB7DE00016E16 /* SceneDelegate.swift in Sources */,
 				8C4D9B09275EB17E00A2E3D3 /* APIClient.swift in Sources */,
 			);
