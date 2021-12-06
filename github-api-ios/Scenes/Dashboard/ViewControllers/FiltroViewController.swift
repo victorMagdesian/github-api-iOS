@@ -14,4 +14,12 @@ class FiltroViewController: UIViewController {
 
     }
 
+    @IBAction func goToMainButton(_ sender: Any) {
+        print("Aperto o X")
+    }
+
+    @IBAction func limparFiltroButton(_ sender: Any) {
+        print("Aperto o LIMPAR")
+    }
+
 }
