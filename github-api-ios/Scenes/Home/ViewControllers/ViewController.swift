@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-            print(apiClientFactory(url: "https://corona.lmao.ninja/countries/Brazil"))
+            print(apiClientFactory(urlParam: "https://corona.lmao.ninja/countries/Brazil"))
 
         }
 
