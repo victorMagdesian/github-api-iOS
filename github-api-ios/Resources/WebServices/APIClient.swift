@@ -17,3 +17,17 @@ func apiClientFactory(urlParam: String) -> Data {
     }
     return response
 }
+
+func decode(_ data: Data) throws -> Repository? {
+ let jsonDecode = JSONDecoder()
+
+ do {
+  let result = try jsonDecode.decode(Repository.self, from: data)
+  return result
+
+ } catch {
+  print("Error")
+ }
+
+ return nil
+}
