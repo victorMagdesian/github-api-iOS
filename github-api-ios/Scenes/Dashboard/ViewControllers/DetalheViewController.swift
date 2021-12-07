@@ -7,10 +7,10 @@
 
 import UIKit
 
-class DetailController: UIViewController {
+class DetalheViewontroller: UIViewController {
 
     override var nibName: String? {
-        "DetailController"
+        "DetalheViewController"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
