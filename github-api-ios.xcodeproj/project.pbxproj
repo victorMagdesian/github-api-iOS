@@ -13,9 +13,9 @@
 		8C4D9B09275EB17E00A2E3D3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B08275EB17E00A2E3D3 /* APIClient.swift */; };
 		8C4D9B15275ED9BE00A2E3D3 /* FiltroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */; };
 		8C4D9B16275ED9BE00A2E3D3 /* FiltroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */; };
-		8C4D9B19275EDA4A00A2E3D3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B17275EDA4A00A2E3D3 /* DetailViewController.swift */; };
-		8C4D9B1A275EDA4A00A2E3D3 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4D9B18275EDA4A00A2E3D3 /* DetailViewController.xib */; };
+		8C4D9B19275EDA4A00A2E3D3 /* DetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B17275EDA4A00A2E3D3 /* DetalheViewController.swift */; };
 		8C4D9B1C275EDB1500A2E3D3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B1B275EDB1500A2E3D3 /* Repository.swift */; };
+		8E1C021B275F60AA00158A34 /* DetalheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1C021A275F60AA00158A34 /* DetalheViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		8C4D9B08275EB17E00A2E3D3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroViewController.swift; sourceTree = "<group>"; };
 		8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltroViewController.xib; sourceTree = "<group>"; };
-		8C4D9B17275EDA4A00A2E3D3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		8C4D9B18275EDA4A00A2E3D3 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		8C4D9B17275EDA4A00A2E3D3 /* DetalheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheViewController.swift; sourceTree = "<group>"; };
 		8C4D9B1B275EDB1500A2E3D3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		8E1C021A275F60AA00158A34 /* DetalheViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetalheViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +125,10 @@
 		8C4D9B11275ED84200A2E3D3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8E1C021A275F60AA00158A34 /* DetalheViewController.xib */,
 				8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */,
 				8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */,
-				8C4D9B17275EDA4A00A2E3D3 /* DetailViewController.swift */,
-				8C4D9B18275EDA4A00A2E3D3 /* DetailViewController.xib */,
+				8C4D9B17275EDA4A00A2E3D3 /* DetalheViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C4D9B16275ED9BE00A2E3D3 /* FiltroViewController.xib in Resources */,
-				8C4D9B1A275EDA4A00A2E3D3 /* DetailViewController.xib in Resources */,
+				8E1C021B275F60AA00158A34 /* DetalheViewController.xib in Resources */,
 				4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,7 +235,7 @@
 			files = (
 				8C4D9B15275ED9BE00A2E3D3 /* FiltroViewController.swift in Sources */,
 				4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */,
-				8C4D9B19275EDA4A00A2E3D3 /* DetailViewController.swift in Sources */,
+				8C4D9B19275EDA4A00A2E3D3 /* DetalheViewController.swift in Sources */,
 				4EFF7C31275AB7DE00016E16 /* SceneDelegate.swift in Sources */,
 				8C4D9B09275EB17E00A2E3D3 /* APIClient.swift in Sources */,
 				8C4D9B1C275EDB1500A2E3D3 /* Repository.swift in Sources */,
