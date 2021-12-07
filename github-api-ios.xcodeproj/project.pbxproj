@@ -135,6 +135,7 @@
 		8C4D9B10275ED82100A2E3D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */,
-				8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */,
 				8C4D9B17275EDA4A00A2E3D3 /* DetailViewController.swift */,
 				8C4D9B18275EDA4A00A2E3D3 /* DetailViewController.xib */,
 			);
