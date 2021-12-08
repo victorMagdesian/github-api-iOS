@@ -13,13 +13,19 @@
 		8122B606275EA290007F6603 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B605275EA290007F6603 /* Coordinator.swift */; };
 		8122B608275EA7F2007F6603 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B607275EA7F1007F6603 /* AppCoordinator.swift */; };
 		8122B60B275EAB02007F6603 /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */; };
-		8C4D9B09275EB17E00A2E3D3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B08275EB17E00A2E3D3 /* APIClient.swift */; };
 		8C4D9B15275ED9BE00A2E3D3 /* FiltroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */; };
 		8C4D9B16275ED9BE00A2E3D3 /* FiltroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */; };
 		8C4D9B19275EDA4A00A2E3D3 /* DetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B17275EDA4A00A2E3D3 /* DetalheViewController.swift */; };
-		8C4D9B1C275EDB1500A2E3D3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B1B275EDB1500A2E3D3 /* Repository.swift */; };
 		8C56FDA6276138DC004598BA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56FDA4276138DC004598BA /* HomeViewController.swift */; };
 		8C56FDA7276138DC004598BA /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C56FDA5276138DC004598BA /* HomeViewController.xib */; };
+		8E9A60D527614BDC004126BB /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A60CF27614BDC004126BB /* Release.swift */; };
+		8E9A60D627614BDC004126BB /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A60D027614BDC004126BB /* Repository.swift */; };
+		8E9A60D727614BDC004126BB /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A60D127614BDC004126BB /* Repositories.swift */; };
+		8E9A60D827614BDC004126BB /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A60D227614BDC004126BB /* Commit.swift */; };
+		8E9A60D927614BDC004126BB /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A60D327614BDC004126BB /* Contributor.swift */; };
+		8E9A60DA27614BDC004126BB /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A60D427614BDC004126BB /* Branch.swift */; };
+		8E9A60DD27614C02004126BB /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A60DB27614C02004126BB /* GithubRepository.swift */; };
+		8E9A60DE27614C02004126BB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A60DC27614C02004126BB /* NetworkService.swift */; };
 		8EE308D22760BE3700E1DE40 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE308D12760BE3700E1DE40 /* RxCocoa */; };
 		8EE308D42760BE3700E1DE40 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE308D32760BE3700E1DE40 /* RxSwift */; };
 		8EEFB453275FC3030031AE53 /* DetalheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EEFB452275FC3030031AE53 /* DetalheViewController.xib */; };
@@ -34,13 +40,19 @@
 		8122B605275EA290007F6603 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8122B607275EA7F1007F6603 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
-		8C4D9B08275EB17E00A2E3D3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroViewController.swift; sourceTree = "<group>"; };
 		8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltroViewController.xib; sourceTree = "<group>"; };
 		8C4D9B17275EDA4A00A2E3D3 /* DetalheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheViewController.swift; sourceTree = "<group>"; };
-		8C4D9B1B275EDB1500A2E3D3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8C56FDA4276138DC004598BA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8C56FDA5276138DC004598BA /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewController.xib; path = ../ViewControllers/HomeViewController.xib; sourceTree = "<group>"; };
+		8E9A60CF27614BDC004126BB /* Release.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Release.swift; sourceTree = "<group>"; };
+		8E9A60D027614BDC004126BB /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		8E9A60D127614BDC004126BB /* Repositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
+		8E9A60D227614BDC004126BB /* Commit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
+		8E9A60D327614BDC004126BB /* Contributor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contributor.swift; sourceTree = "<group>"; };
+		8E9A60D427614BDC004126BB /* Branch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
+		8E9A60DB27614C02004126BB /* GithubRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
+		8E9A60DC27614C02004126BB /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8EEFB452275FC3030031AE53 /* DetalheViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetalheViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +119,8 @@
 		8C4D9B0A275EB18300A2E3D3 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
-				8C4D9B08275EB17E00A2E3D3 /* APIClient.swift */,
+				8E9A60DB27614C02004126BB /* GithubRepository.swift */,
+				8E9A60DC27614C02004126BB /* NetworkService.swift */,
 			);
 			path = WebServices;
 			sourceTree = "<group>";
@@ -135,7 +148,12 @@
 		8C4D9B0F275ED81800A2E3D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8C4D9B1B275EDB1500A2E3D3 /* Repository.swift */,
+				8E9A60D427614BDC004126BB /* Branch.swift */,
+				8E9A60D227614BDC004126BB /* Commit.swift */,
+				8E9A60D327614BDC004126BB /* Contributor.swift */,
+				8E9A60CF27614BDC004126BB /* Release.swift */,
+				8E9A60D127614BDC004126BB /* Repositories.swift */,
+				8E9A60D027614BDC004126BB /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,13 +287,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C4D9B15275ED9BE00A2E3D3 /* FiltroViewController.swift in Sources */,
+				8E9A60D527614BDC004126BB /* Release.swift in Sources */,
 				4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */,
+				8E9A60D827614BDC004126BB /* Commit.swift in Sources */,
+				8E9A60DD27614C02004126BB /* GithubRepository.swift in Sources */,
+				8E9A60DE27614C02004126BB /* NetworkService.swift in Sources */,
 				8C4D9B19275EDA4A00A2E3D3 /* DetalheViewController.swift in Sources */,
 				4EFF7C31275AB7DE00016E16 /* SceneDelegate.swift in Sources */,
+				8E9A60D727614BDC004126BB /* Repositories.swift in Sources */,
+				8E9A60DA27614BDC004126BB /* Branch.swift in Sources */,
+				8E9A60D627614BDC004126BB /* Repository.swift in Sources */,
 				8122B608275EA7F2007F6603 /* AppCoordinator.swift in Sources */,
+				8E9A60D927614BDC004126BB /* Contributor.swift in Sources */,
 				8C56FDA6276138DC004598BA /* HomeViewController.swift in Sources */,
-				8C4D9B09275EB17E00A2E3D3 /* APIClient.swift in Sources */,
-				8C4D9B1C275EDB1500A2E3D3 /* Repository.swift in Sources */,
 				8122B60B275EAB02007F6603 /* DashboardCoordinator.swift in Sources */,
 				8122B606275EA290007F6603 /* Coordinator.swift in Sources */,
 			);
