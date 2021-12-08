@@ -6,9 +6,12 @@ class DashboardCoordinator: Coordinator {
     weak var parentCoordinator: AppCoordinator?
     var navigationController: UINavigationController?
 
+    var filters: [String]?
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
+
 //     ViewModel aqui
     override func start() {
         let viewCont = HomeViewController()
@@ -27,6 +30,14 @@ class DashboardCoordinator: Coordinator {
         let viewCont = DetalheViewController()
         viewCont.coordinator = self
         navigationController!.pushViewController(viewCont, animated: true)
+    }
+
+    func applyFilters(filters: [String]) {
+        self.filters?.append(contentsOf: filters)
+    }
+
+    func sendBackToHome() {
+        start()
     }
 
     override func finish() {

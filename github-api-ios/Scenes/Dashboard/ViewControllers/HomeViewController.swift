@@ -23,14 +23,17 @@ class HomeViewController: UIViewController {
     var filtrosSelecionados = [UIView]()
 
     override func viewDidLoad() {
+        print("Entrou aqui dnv")
         indicadorDeAtividadeTextBox.isHidden = true
         super.viewDidLoad()
+
         filtros = [
             self.botaoFiltroData,
             self.botaoFiltroSeguidores,
             self.botaoFiltroDecrescente
         ]
         filtrosSelecionados = filtros
+
         for filtro in filtros {
 
         }
