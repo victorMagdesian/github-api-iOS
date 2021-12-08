@@ -17,9 +17,12 @@ class FiltroViewController: UIViewController {
     @IBOutlet var ascendingFilter: UIButton!
     @IBOutlet var descendingFilter: UIButton!
 
+    @IBOutlet var applyFilter: UIButton!
+
     var selectedButtons: [UIButton] = []
 
     override func viewDidLoad() {
+        print("Entrou aqui dnv no filtro")
         super.viewDidLoad()
 
         let buttons: [UIButton] = [
@@ -29,16 +32,14 @@ class FiltroViewController: UIViewController {
             ascendingFilter,
             descendingFilter
         ]
-//        starFilter.addTarget(
-//            self,
-//            action: #selector(tappedButton),
-//            for: .touchUpInside
-//        )
+
+        applyFilter.layer.cornerRadius = 4
 
         for button in buttons {
             button.layer.borderColor = UIColor.black.cgColor
             button.layer.borderWidth = 1
             button.layer.cornerRadius = 4
+            button.setImage(nil, for: .normal)
 
             button.addTarget(
                 self,
@@ -60,27 +61,73 @@ class FiltroViewController: UIViewController {
 
         selectedButtons.forEach {
             $0.backgroundColor = .none
-            $0.titleLabel?.textColor = .black
-            $0.setTitleColor(.black, for: .normal)
             $0.setImage(nil, for: .normal)
+            $0.setTitleColor(.black, for: .selected)
+            $0.isSelected = false
         }
+
+        selectedButtons.removeAll()
     }
 
     @objc func tappedButton(_ sender: UIButton) {
-        if sender.isHighlighted {
-            sender.backgroundColor = .black
-            sender.layer.cornerRadius = 4
-            sender.setTitleColor(.white, for: .normal)
+        let titleLabel = sender.titleLabel?.text
 
-            sender.setImage(UIImage(named: "Checked"), for: .normal)
-            selectedButtons.append(sender)
-        } else {
+        let existingAscendingButton = selectedButtons.first(
+            where: { button in button.titleLabel?.text == "CRESCENTE" }
+        )
 
-            sender.backgroundColor = .none
-            sender.setImage(nil, for: .normal)
-//            sender.titleLabel?.textColor = .black
+        let existingDescendingButton = selectedButtons.first(
+            where: { button in button.titleLabel?.text == "DECRESCENTE" }
+        )
 
-            sender.setTitleColor(.black, for: .normal)
+        if titleLabel == "DECRESCENTE" && existingAscendingButton != nil {
+            existingAscendingButton?.isSelected = false
+            setStyleButtonUnSelected(existingAscendingButton!)
+
+        } else if titleLabel == "CRESCENTE" && existingDescendingButton != nil {
+            existingDescendingButton?.isSelected = false
+            setStyleButtonUnSelected(existingDescendingButton!)
         }
+
+        if sender.isSelected {
+            sender.isSelected = false
+
+            setStyleButtonUnSelected(sender)
+            selectedButtons.remove(at: selectedButtons.firstIndex(of: sender)!)
+        } else {
+            sender.isSelected = true
+
+            setStyleButtonSelected(sender)
+            selectedButtons.append(sender)
+        }
+    }
+
+    @IBAction func applyButton(_ sender: UIButton) {
+        print("aplicando filtro...")
+
+        var filtersName = [String]()
+
+        selectedButtons.forEach {
+            filtersName.append(($0.titleLabel?.text)!)
+        }
+
+        print(filtersName)
+
+        coordinator?.applyFilters(filters: filtersName)
+        coordinator?.sendBackToHome()
+    }
+}
+
+extension FiltroViewController {
+    private func setStyleButtonSelected(_ button: UIButton) {
+        button.backgroundColor = .black
+        button.setTitleColor(.white, for: .selected)
+        button.setImage(UIImage(named: "Checked"), for: .normal)
+    }
+
+    private func setStyleButtonUnSelected(_ button: UIButton) {
+        button.backgroundColor = .none
+        button.setImage(nil, for: .normal)
+        button.setTitleColor(.black, for: .normal)
     }
 }

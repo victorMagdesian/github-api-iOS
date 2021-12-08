@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FiltroViewController" customModule="github_api_ios" customModuleProvider="target">
             <connections>
+                <outlet property="applyFilter" destination="P8s-o6-cbl" id="ZIR-xX-zJL"/>
                 <outlet property="ascendingFilter" destination="t4e-92-tDa" id="aOU-Q2-1Lk"/>
                 <outlet property="dateFilter" destination="Dd2-so-ov7" id="mKs-YN-718"/>
                 <outlet property="descendingFilter" destination="ZMM-hH-2Z3" id="BK7-7g-a7U"/>
@@ -114,36 +115,35 @@
                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="xIC-uh-G7I">
                             <rect key="frame" x="16" y="76" width="396" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3X-rn-prD">
-                                    <rect key="frame" x="0.0" y="0.0" width="113" height="40"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3X-rn-prD">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="78P-Yf-QTD"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="ESTRELAS">
+                                    <state key="normal" title="ESTRELAS" image="Checked">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R9-Er-dkv">
-                                    <rect key="frame" x="131" y="0.0" width="142.33333333333337" height="40"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R9-Er-dkv">
+                                    <rect key="frame" x="138" y="0.0" width="141" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="SEGUIDORES">
+                                    <state key="normal" title="SEGUIDORES" image="Checked">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd2-so-ov7">
-                                    <rect key="frame" x="291.33333333333331" y="0.0" width="104.66666666666669" height="40"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd2-so-ov7">
+                                    <rect key="frame" x="297" y="0.0" width="99" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="DATA">
+                                    <state key="normal" title="DATA" image="Checked">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
@@ -182,7 +182,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Xw1-iL-WaB">
                             <rect key="frame" x="16" y="71" width="345" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4e-92-tDa">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4e-92-tDa">
                                     <rect key="frame" x="0.0" y="0.0" width="165.66666666666666" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -191,17 +191,17 @@
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="CRESCENTE">
+                                    <state key="normal" title="CRESCENTE" image="Checked">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMM-hH-2Z3">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMM-hH-2Z3">
                                     <rect key="frame" x="179.66666666666663" y="0.0" width="165.33333333333337" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="DECRESCENTE">
+                                    <state key="normal" title="DECRESCENTE" image="Checked">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
@@ -235,7 +235,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="goToMainController:" destination="-1" eventType="touchUpInside" id="t1s-Gm-LEb"/>
+                        <action selector="applyButton:" destination="-1" eventType="touchUpInside" id="DKr-Dk-LPH"/>
                     </connections>
                 </button>
             </subviews>
@@ -265,6 +265,7 @@
         <navigationItem title="Title" id="DZV-TS-ggm"/>
     </objects>
     <resources>
+        <image name="Checked" width="28" height="28"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>
