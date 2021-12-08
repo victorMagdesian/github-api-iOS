@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
     @objc func onTap(_ sender: UIButton) {
         coordinator?.filtro()
     }
-
     /*
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
