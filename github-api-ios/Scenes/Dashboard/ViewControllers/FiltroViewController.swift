@@ -11,9 +11,10 @@ class FiltroViewController: UIViewController {
     @IBOutlet var starFilter: UIButton!
     @IBOutlet var followFilter: UIButton!
     @IBOutlet var dateFilter: UIButton!
-
     @IBOutlet var ascendingFilter: UIButton!
     @IBOutlet var descendingFilter: UIButton!
+
+    var selectedButtons: [UIButton] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,6 @@ class FiltroViewController: UIViewController {
             ascendingFilter,
             descendingFilter
         ]
-
 //        starFilter.addTarget(
 //            self,
 //            action: #selector(tappedButton),
@@ -33,40 +33,50 @@ class FiltroViewController: UIViewController {
 //        )
 
         for button in buttons {
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+            button.layer.borderColor = UIColor.black.cgColor
+            button.layer.borderWidth = 1
+            button.layer.cornerRadius = 4
 
             button.addTarget(
                 self,
                 action: #selector(tappedButton),
                 for: .touchUpInside
             )
-
-            button.isHighlighted = false
         }
-
     }
 
-    @IBAction func goToMainButton(_ sender: UIButton) {
-        print("Aperto o X")
+    @IBAction func goToMainController(_ sender: Any) {
+        print("Indo pro main..")
     }
 
     @IBAction func limparFiltroButton(_ sender: UIButton) {
-        print("Aperto o LIMPAR")
-    }
-
-    @objc func tappedButton(_ sender: UIButton) {
-        if sender.backgroundColor == .none {
-            sender.backgroundColor = .black
-            sender.layer.cornerRadius = 4
-            sender.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-            sender.setTitleColor(.white, for: .normal)
+        if selectedButtons.isEmpty {
             return
         }
 
-        sender.backgroundColor = .none
-        sender.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        sender.titleLabel?.textColor = .black
-        sender.setTitleColor(.black, for: .normal)
+        selectedButtons.forEach {
+            $0.backgroundColor = .none
+            $0.titleLabel?.textColor = .black
+            $0.setTitleColor(.black, for: .normal)
+            $0.setImage(nil, for: .normal)
+        }
     }
 
+    @objc func tappedButton(_ sender: UIButton) {
+        if sender.isHighlighted {
+            sender.backgroundColor = .black
+            sender.layer.cornerRadius = 4
+            sender.setTitleColor(.white, for: .normal)
+
+            sender.setImage(UIImage(named: "Checked"), for: .normal)
+            selectedButtons.append(sender)
+        } else {
+
+            sender.backgroundColor = .none
+            sender.setImage(nil, for: .normal)
+//            sender.titleLabel?.textColor = .black
+
+            sender.setTitleColor(.black, for: .normal)
+        }
+    }
 }
