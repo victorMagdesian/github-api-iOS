@@ -5,7 +5,7 @@ class AppCoordinator: Coordinator {
     let window: UIWindow?
 
     lazy var rootViewController: UIViewController = {
-        return FiltroViewController()
+        return DetalheViewController()
     }()
 
     init(window: UIWindow?) {
