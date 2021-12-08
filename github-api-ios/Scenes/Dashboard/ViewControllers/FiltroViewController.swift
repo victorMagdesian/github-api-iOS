@@ -81,24 +81,15 @@ class FiltroViewController: UIViewController {
         )
 
         if titleLabel == "DECRESCENTE" && existingAscendingButton != nil {
-            existingAscendingButton?.isSelected = false
-            setStyleButtonUnSelected(existingAscendingButton!)
-
+            setButtonUnSelected(existingAscendingButton!)
         } else if titleLabel == "CRESCENTE" && existingDescendingButton != nil {
-            existingDescendingButton?.isSelected = false
-            setStyleButtonUnSelected(existingDescendingButton!)
+            setButtonUnSelected(existingDescendingButton!)
         }
 
         if sender.isSelected {
-            sender.isSelected = false
-
-            setStyleButtonUnSelected(sender)
-            selectedButtons.remove(at: selectedButtons.firstIndex(of: sender)!)
+            setButtonUnSelected(sender)
         } else {
-            sender.isSelected = true
-
-            setStyleButtonSelected(sender)
-            selectedButtons.append(sender)
+            setButtonSelected(sender)
         }
     }
 
@@ -119,15 +110,23 @@ class FiltroViewController: UIViewController {
 }
 
 extension FiltroViewController {
-    private func setStyleButtonSelected(_ button: UIButton) {
+    private func setButtonSelected(_ button: UIButton) {
+        button.isSelected = true
+
         button.backgroundColor = .black
         button.setTitleColor(.white, for: .selected)
         button.setImage(UIImage(named: "Checked"), for: .normal)
+
+        selectedButtons.append(button)
     }
 
-    private func setStyleButtonUnSelected(_ button: UIButton) {
+    private func setButtonUnSelected(_ button: UIButton) {
+        button.isSelected = false
+
         button.backgroundColor = .none
         button.setImage(nil, for: .normal)
         button.setTitleColor(.black, for: .normal)
+
+        selectedButtons.remove(at: selectedButtons.firstIndex(of: button)!)
     }
 }
