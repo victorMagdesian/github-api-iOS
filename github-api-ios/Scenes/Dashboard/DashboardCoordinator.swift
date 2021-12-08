@@ -3,7 +3,6 @@ import UIKit
 
 class DashboardCoordinator: Coordinator {
 
-    let rootNavigationController = DetailViewController()
 
     // ViewModel aqui
 
