@@ -8,6 +8,9 @@
 import UIKit
 
 class FiltroViewController: UIViewController {
+
+    var coordinator: DashboardCoordinator?
+
     @IBOutlet var starFilter: UIButton!
     @IBOutlet var followFilter: UIButton!
     @IBOutlet var dateFilter: UIButton!
@@ -47,6 +50,7 @@ class FiltroViewController: UIViewController {
 
     @IBAction func goToMainController(_ sender: Any) {
         print("Indo pro main..")
+        self.coordinator?.start()
     }
 
     @IBAction func limparFiltroButton(_ sender: UIButton) {

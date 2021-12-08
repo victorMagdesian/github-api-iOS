@@ -8,6 +8,7 @@
 import UIKit
 
 class DetalheViewController: UIViewController {
+    var coordinator: DashboardCoordinator?
 
     @IBOutlet var repoIcon: UIImageView!
     @IBOutlet var repoName: UILabel!
