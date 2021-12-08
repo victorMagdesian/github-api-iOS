@@ -4,7 +4,7 @@ import UIKit
 class AppCoordinator: Coordinator {
     let window: UIWindow?
 
-    var vc = FiltroViewController()
+    var viewController = FiltroViewController()
 
     var navController: UINavigationController = {
         let nav = UINavigationController()

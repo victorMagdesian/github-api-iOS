@@ -1,35 +1,83 @@
+//
+//  MainViewController.swift
+//  github-api-ios
+//
+//  Created by VICTOR PEREIRA MOURA on 06/12/21.
+//
+
 import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet var botaoNumeroNotificacoes: UIButton!
+    @IBOutlet var botaoPesquisar: UIButton!
+    @IBOutlet var botaoFiltroData: UIView!
+    @IBOutlet var botaoFiltroSeguidores: UIView!
+    @IBOutlet var botaoFiltroDecrescente: UIView!
+    @IBOutlet var filtrarTextField: UITextField!
+    @IBOutlet var indicadorDeAtividadeTextBox: UIView!
+
     var coordinator: DashboardCoordinator?
 
-    lazy var botaoTeste: UIButton = {
-        let btn = UIButton(frame: CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2, width: 100, height: 100))
-        btn.setTitle("GOOOOOOO", for: .normal)
-        btn.backgroundColor = .black
-        btn.setTitleColor(.white, for: .normal)
-        btn.addTarget(self, action: #selector(onTap), for: .touchUpInside)
-        return btn
-    }()
+    var filtros = [UIView]()
+    var filtrosSelecionados = [UIView]()
 
     override func viewDidLoad() {
+        indicadorDeAtividadeTextBox.isHidden = true
         super.viewDidLoad()
+        filtros = [
+            self.botaoFiltroData,
+            self.botaoFiltroSeguidores,
+            self.botaoFiltroDecrescente
+        ]
+        filtrosSelecionados = filtros
+        for filtro in filtros {
 
-        view.addSubview(botaoTeste)
-        view.backgroundColor = .systemRed
+        }
+        filtrarTextField.delegate = self
+        filtrarTextField.becomeFirstResponder()
     }
 
-    @objc func onTap(_ sender: UIButton) {
+    func abrirfiltro() {
+
+    }
+
+    @IBAction func goToFilter(_ sender: Any) {
         coordinator?.filtro()
     }
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
+    func carregarFiltrosSelecionados() {
+        for filtro in filtros {
+            filtro.isHidden = !filtrosSelecionados.contains(filtro)
+        }
+    }
+
+    @IBAction func limparFiltros(_ sender: UIButton) {
+        filtrosSelecionados = []
+        carregarFiltrosSelecionados()
+    }
+
+    @IBAction func focoCampoDeTexto(_ sender: Any) {
+        filtrarTextField.becomeFirstResponder()
+    }
+}
+
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        indicadorDeAtividadeTextBox.isHidden = false
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        indicadorDeAtividadeTextBox.isHidden = false
+
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        filtrarTextField.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        indicadorDeAtividadeTextBox.isHidden = true
+    }
 }
