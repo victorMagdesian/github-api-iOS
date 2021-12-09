@@ -13,6 +13,8 @@
 		8122B606275EA290007F6603 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B605275EA290007F6603 /* Coordinator.swift */; };
 		8122B608275EA7F2007F6603 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B607275EA7F1007F6603 /* AppCoordinator.swift */; };
 		8122B60B275EAB02007F6603 /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */; };
+		81C233CC2762422800509D13 /* CustomFilterButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81C233CB2762422800509D13 /* CustomFilterButton.xib */; };
+		81C233CF2762495700509D13 /* CustomFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C233CE2762495700509D13 /* CustomFilterButton.swift */; };
 		8C4D9B15275ED9BE00A2E3D3 /* FiltroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */; };
 		8C4D9B16275ED9BE00A2E3D3 /* FiltroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */; };
 		8C4D9B19275EDA4A00A2E3D3 /* DetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D9B17275EDA4A00A2E3D3 /* DetalheViewController.swift */; };
@@ -41,6 +43,8 @@
 		8122B605275EA290007F6603 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8122B607275EA7F1007F6603 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
+		81C233CB2762422800509D13 /* CustomFilterButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFilterButton.xib; sourceTree = "<group>"; };
+		81C233CE2762495700509D13 /* CustomFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilterButton.swift; sourceTree = "<group>"; };
 		8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroViewController.swift; sourceTree = "<group>"; };
 		8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltroViewController.xib; sourceTree = "<group>"; };
 		8C4D9B17275EDA4A00A2E3D3 /* DetalheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,14 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		81C233CD2762493B00509D13 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				81C233CE2762495700509D13 /* CustomFilterButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		8C4D9B0A275EB18300A2E3D3 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +150,7 @@
 		8C4D9B0E275ED80A00A2E3D3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				81C233CD2762493B00509D13 /* Components */,
 				8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */,
 				8C4D9B12275ED89700A2E3D3 /* ViewModels */,
 				8C4D9B11275ED84200A2E3D3 /* ViewControllers */,
@@ -167,6 +180,7 @@
 				8C56FDA5276138DC004598BA /* HomeViewController.xib */,
 				8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */,
 				CD7B011327614DE200248B2A /* RepositorioCollectionViewCell.xib */,
+				81C233CB2762422800509D13 /* CustomFilterButton.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C233CC2762422800509D13 /* CustomFilterButton.xib in Resources */,
 				8C4D9B16275ED9BE00A2E3D3 /* FiltroViewController.xib in Resources */,
 				4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */,
 				8EEFB453275FC3030031AE53 /* DetalheViewController.xib in Resources */,
@@ -305,6 +320,7 @@
 				8E9A60D927614BDC004126BB /* Contributor.swift in Sources */,
 				8C56FDA6276138DC004598BA /* HomeViewController.swift in Sources */,
 				8122B60B275EAB02007F6603 /* DashboardCoordinator.swift in Sources */,
+				81C233CF2762495700509D13 /* CustomFilterButton.swift in Sources */,
 				8122B606275EA290007F6603 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

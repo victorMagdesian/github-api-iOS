@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
         }
         filtrarTextField.delegate = self
         filtrarTextField.becomeFirstResponder()
+
+//        loadButton()
     }
 
     func abrirfiltro() {
@@ -41,9 +43,9 @@ class HomeViewController: UIViewController {
     }
 
     func carregarFiltrosSelecionados() {
-        for filtro in filtros {
-            filtro.isHidden = !filtrosSelecionados.contains(filtro)
-        }
+//        for filtro in filtros {
+//            filtro.isHidden = !filtrosSelecionados.contains(filtro)
+//        }
     }
 
     @IBAction func limparFiltros(_ sender: UIButton) {
@@ -54,6 +56,13 @@ class HomeViewController: UIViewController {
     @IBAction func focoCampoDeTexto(_ sender: Any) {
         filtrarTextField.becomeFirstResponder()
     }
+
+//    func loadButton() {
+//        let buttonView = CustomFilterButton()
+//
+//        self.container.addSubview(buttonView)
+//        buttonView.frame = self.container.bounds
+//    }
 }
 
 extension HomeViewController: UITextFieldDelegate {
