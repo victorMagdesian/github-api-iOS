@@ -36,16 +36,8 @@ class FiltroViewController: UIViewController {
         applyFilter.layer.cornerRadius = 4
 
         for button in buttons {
-            button.layer.borderColor = UIColor.black.cgColor
-            button.layer.borderWidth = 1
-            button.layer.cornerRadius = 4
-            button.setImage(nil, for: .normal)
-
-            button.addTarget(
-                self,
-                action: #selector(tappedButton),
-                for: .touchUpInside
-            )
+            setUpButton(button)
+            selectButtonIfOptionSelected(button)
         }
     }
 
@@ -110,6 +102,19 @@ class FiltroViewController: UIViewController {
 }
 
 extension FiltroViewController {
+
+    private func setUpButton(_ button: UIButton) {
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 4
+        button.setImage(nil, for: .normal)
+        button.addTarget(
+            self,
+            action: #selector(tappedButton),
+            for: .touchUpInside
+        )
+    }
+
     private func setButtonSelected(_ button: UIButton) {
         button.isSelected = true
 
@@ -122,11 +127,20 @@ extension FiltroViewController {
 
     private func setButtonUnSelected(_ button: UIButton) {
         button.isSelected = false
-
         button.backgroundColor = .none
         button.setImage(nil, for: .normal)
         button.setTitleColor(.black, for: .normal)
-
         selectedButtons.remove(at: selectedButtons.firstIndex(of: button)!)
+    }
+    
+    private func selectButtonIfOptionSelected (_ button: UIButton) {
+        guard let buttonTitle = button.titleLabel?.text else {
+            fatalError()
+        }
+        if let filters = coordinator?.filters {
+            if filters.contains(buttonTitle) {
+                setButtonSelected(button)
+            }
+        }
     }
 }

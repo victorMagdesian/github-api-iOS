@@ -51,8 +51,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func limparFiltros(_ sender: UIButton) {
-        filtrosSelecionados = []
-        carregarFiltrosSelecionados()
+
     }
 
     @IBAction func focoCampoDeTexto(_ sender: Any) {
