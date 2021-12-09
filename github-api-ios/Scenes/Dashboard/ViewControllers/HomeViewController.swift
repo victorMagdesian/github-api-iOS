@@ -9,72 +9,67 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet var botaoPesquisar: UIButton!
-    @IBOutlet var botaoFiltroData: UIView!
-    @IBOutlet var botaoFiltroSeguidores: UIView!
-    @IBOutlet var botaoFiltroDecrescente: UIView!
-    @IBOutlet var filtrarTextField: UITextField!
-    @IBOutlet var indicadorDeAtividadeTextBox: UIView!
-
-    @IBOutlet var numeroFiltrosLabel: UILabel!
-    var coordinator: DashboardCoordinator?
-    var filtrosSelecionados = [UIView]()
+    @IBOutlet var searchButton: UIButton!
+    @IBOutlet var filterTextField: UITextField!
+    @IBOutlet var activityIndicatorView: UIView!
+    @IBOutlet var filterCountLabel: UILabel!
     @IBOutlet var filtrosHomeStackView: UIStackView!
+
+    var coordinator: DashboardCoordinator?
+    var selectedFilters = [UIView]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        indicadorDeAtividadeTextBox.isHidden = true
+        activityIndicatorView.isHidden = true
 
-        if let filtros = coordinator?.filters {
-            numeroFiltrosLabel.text = String(filtros.count)
+        if let filters = coordinator?.filters {
+            filterCountLabel.text = String(filters.count)
 
-            for filtro in filtros {
+            for filter in filters {
                 let button = UIButton() // vamos mudar para uma custom view
-                button.setTitle(filtro, for: .normal)
+                button.setTitle(filter, for: .normal)
                 button.layer.borderWidth = 2
                 button.layer.borderColor = UIColor.black.cgColor
+                button.backgroundColor = UIColor.white
+                button.setTitleColor(UIColor.black, for: .normal)
                 filtrosHomeStackView.addArrangedSubview(button)
-
             }
 
         }
-        filtrarTextField.delegate = self
-        filtrarTextField.becomeFirstResponder()
-    }
-
-    func abrirfiltro() {
-
+        filterTextField.delegate = self
+        filterTextField.becomeFirstResponder()
     }
 
     @IBAction func goToFilter(_ sender: Any) {
         coordinator?.filtro()
     }
 
-    @IBAction func limparFiltros(_ sender: UIButton) {
-
+    @IBAction func focusFilterTextField(_ sender: Any) {
+        filterTextField.becomeFirstResponder()
     }
 
-    @IBAction func focoCampoDeTexto(_ sender: Any) {
-        filtrarTextField.becomeFirstResponder()
+    @IBAction func clearFilters(_ sender: Any) {
+        coordinator?.filters = []
+        filtrosHomeStackView.subviews.forEach {$0.removeFromSuperview()}
     }
 }
 
 extension HomeViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        indicadorDeAtividadeTextBox.isHidden = false
+        activityIndicatorView.isHidden = false
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        indicadorDeAtividadeTextBox.isHidden = false
+        activityIndicatorView.isHidden = false
 
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        filtrarTextField.endEditing(true)
+        filterTextField.endEditing(true)
         super.touchesBegan(touches, with: event)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        indicadorDeAtividadeTextBox.isHidden = true
+        activityIndicatorView.isHidden = true
     }
 }

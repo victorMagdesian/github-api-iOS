@@ -132,7 +132,7 @@ extension FiltroViewController {
         button.setTitleColor(.black, for: .normal)
         selectedButtons.remove(at: selectedButtons.firstIndex(of: button)!)
     }
-    
+
     private func selectButtonIfOptionSelected (_ button: UIButton) {
         guard let buttonTitle = button.titleLabel?.text else {
             fatalError()
