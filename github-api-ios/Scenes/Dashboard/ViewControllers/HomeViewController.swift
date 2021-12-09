@@ -28,34 +28,17 @@ class HomeViewController: UIViewController {
         if let buttonFilters = coordinator?.filters {
             numeroFiltrosLabel.text = String(buttonFilters.count)
 
-            for filtro in buttonFilters {
+            buttonFilters.forEach {
+                $0.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
 
-//                let buttonContainer = UIView()
-//                let button = CustomFilterButton() // vamos mudar para uma custom view
-//                
-//                button.filterButton.setTitle(filtro, for: .normal)
-//               
-//                buttonContainer.addSubview(button)
-
-//                button.layer.borderWidth = 2
-//                button.layer.borderColor = UIColor.black.cgColor
-
-                filtrosHomeStackView.addArrangedSubview(filtro)
-                filtrosHomeStackView.setCustomSpacing(8, after: filtro)
-
-//                filtro.addTarget(nil, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+                filtrosHomeStackView.addArrangedSubview($0)
+                filtrosHomeStackView.setCustomSpacing(8, after: $0)
 
             }
-
         }
+
         filtrarTextField.delegate = self
         filtrarTextField.becomeFirstResponder()
-
-//        loadButton()
-    }
-
-    func abrirfiltro() {
-
     }
 
     @IBAction func goToFilter(_ sender: Any) {
@@ -68,20 +51,13 @@ class HomeViewController: UIViewController {
 //        }
 
     @IBAction func limparFiltros(_ sender: UIButton) {
-        filtrosSelecionados = []
+        filtrosSelecionados.removeAll()
 //        carregarFiltrosSelecionados()
     }
 
     @IBAction func focoCampoDeTexto(_ sender: Any) {
         filtrarTextField.becomeFirstResponder()
     }
-
-//    func loadButton() {
-//        let buttonView = CustomFilterButton()
-//
-//        self.container.addSubview(buttonView)
-//        buttonView.frame = self.container.bounds
-//    }
 }
 
 extension HomeViewController: UITextFieldDelegate {
@@ -101,5 +77,28 @@ extension HomeViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         indicadorDeAtividadeTextBox.isHidden = true
+    }
+}
+
+extension HomeViewController {
+    @objc private func removeFilter(_ sender: UIButton) {
+        sender.isSelected = false
+
+        guard let indexButton = coordinator?.filters.firstIndex(of: sender) else {
+            return
+        }
+
+        coordinator?.filters.remove(at: indexButton)
+
+        guard let countFilters = coordinator?.filters.count else { return }
+
+        numeroFiltrosLabel.text = String(countFilters)
+
+        UIView.animate(withDuration: 0.4, delay: 0, options: []) {
+            sender.transform = CGAffineTransform(translationX: 0, y: 20)
+            sender.alpha = 0
+        } completion: { _ in
+            sender.removeFromSuperview()
+        }
     }
 }
