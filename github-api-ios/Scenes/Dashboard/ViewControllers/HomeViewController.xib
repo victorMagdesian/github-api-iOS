@@ -163,7 +163,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxs-1v-EAx" userLabel="FilterView">
-                    <rect key="frame" x="0.0" y="208" width="414" height="654"/>
+                    <rect key="frame" x="0.0" y="208" width="414" height="71"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTRANDO:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVv-uu-d9R">
                             <rect key="frame" x="8" y="0.0" width="54" height="11"/>
@@ -172,7 +172,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="DTb-jL-i5P">
-                            <rect key="frame" x="8" y="29" width="398" height="36"/>
+                            <rect key="frame" x="8" y="19" width="398" height="36"/>
                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="Poh-pM-zfC"/>
@@ -182,10 +182,11 @@
                     <color key="backgroundColor" systemColor="systemTealColor"/>
                     <constraints>
                         <constraint firstItem="DTb-jL-i5P" firstAttribute="leading" secondItem="jVv-uu-d9R" secondAttribute="leading" id="1Zw-Aw-kLo"/>
+                        <constraint firstAttribute="height" constant="71" id="SPF-Mb-hVW"/>
                         <constraint firstItem="jVv-uu-d9R" firstAttribute="top" secondItem="wxs-1v-EAx" secondAttribute="top" id="Wbc-Xk-y9Q"/>
                         <constraint firstItem="jVv-uu-d9R" firstAttribute="leading" secondItem="wxs-1v-EAx" secondAttribute="leading" constant="8" id="YXG-Ny-Z08"/>
                         <constraint firstAttribute="trailing" secondItem="DTb-jL-i5P" secondAttribute="trailing" constant="8" id="oBm-vC-RdF"/>
-                        <constraint firstItem="DTb-jL-i5P" firstAttribute="top" secondItem="jVv-uu-d9R" secondAttribute="bottom" constant="18" id="tMj-mZ-d0C"/>
+                        <constraint firstItem="DTb-jL-i5P" firstAttribute="top" secondItem="jVv-uu-d9R" secondAttribute="bottom" constant="8" id="tMj-mZ-d0C"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zd-qr-dzh" userLabel="BottomView">
@@ -213,11 +214,17 @@
                         <constraint firstItem="7yp-1e-FDy" firstAttribute="top" secondItem="5Zd-qr-dzh" secondAttribute="top" id="beE-dv-2eG"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtb-Yd-mBe">
+                    <rect key="frame" x="0.0" y="287" width="414" height="523"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="eEJ-zN-LH7"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="V5N-hK-DPo"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="wxs-1v-EAx" firstAttribute="bottom" secondItem="5Zd-qr-dzh" secondAttribute="bottom" id="3cl-wG-GtC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Zd-qr-dzh" secondAttribute="trailing" id="Cua-uP-5VC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wxs-1v-EAx" secondAttribute="trailing" id="FeE-3j-ad2"/>
                 <constraint firstItem="4bK-wh-CRM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gyg-n2-C2S"/>
@@ -232,16 +239,6 @@
                 <constraint firstItem="4bK-wh-CRM" firstAttribute="top" secondItem="Pw8-oN-MKX" secondAttribute="bottom" constant="-28" id="yJe-gY-L3n"/>
             </constraints>
             <point key="canvasLocation" x="-33.333333333333336" y="81.026785714285708"/>
-        </view>
-        <view contentMode="scaleToFill" id="ogr-TL-iTx">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="147"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <viewLayoutGuide key="safeArea" id="Rpn-tK-XpH"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <nil key="simulatedTopBarMetrics"/>
-            <nil key="simulatedBottomBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="991.304347826087" y="262.16517857142856"/>
         </view>
     </objects>
     <resources>
