@@ -50,12 +50,6 @@ class HomeViewController: UIViewController {
         coordinator?.filtro()
     }
 
-    func carregarFiltrosSelecionados() {
-//        for filtro in filtros {
-//            filtro.isHidden = !filtrosSelecionados.contains(filtro)
-//        }
-//    }
-
     @IBAction func limparFiltros(_ sender: UIButton) {
         filtrosSelecionados = []
         carregarFiltrosSelecionados()
