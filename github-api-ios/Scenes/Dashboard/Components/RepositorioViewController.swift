@@ -10,26 +10,28 @@ class RepositorioViewController: UIViewController {
 
     @IBOutlet var topView: UIView!
     @IBOutlet var bottomView: UIView!
-    @IBOutlet var nomeRepositorioLabel: UILabel!
-    @IBOutlet var totalEstrelasLabel: UILabel!
-    @IBOutlet var totalSeguidoresLabel: UILabel!
-    @IBOutlet var totalForksLabel: UILabel!
-    @IBOutlet var seguidoresTitleLabel: UILabel!
+    @IBOutlet var repositoryName: UILabel!
+    @IBOutlet var stargazerCountLabel: UILabel!
+    @IBOutlet var watcherCountLabel: UILabel!
+    @IBOutlet var forkCountLabel: UILabel!
+    @IBOutlet var watchersTitleLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     @IBOutlet var forksTitleLabel: UILabel!
-    @IBOutlet var dataTitleLabel: UILabel!
-
-    let escuro: Bool = true
+    @IBOutlet var dateTitleLabel: UILabel!
+    
+    let isDark: Bool = true
+    
     override func viewDidLoad() {
-        if !escuro {
+        if !isDark {
             topView.backgroundColor = UIColor.white
             bottomView.backgroundColor = UIColor(red: 126, green: 126, blue: 126, alpha: 1)
-            nomeRepositorioLabel.textColor = UIColor.black
-            totalEstrelasLabel.textColor = UIColor.black
-            totalSeguidoresLabel.textColor = UIColor.black
-            seguidoresTitleLabel.textColor = UIColor.black
+            repositoryName.textColor = UIColor.black
+            stargazerCountLabel.textColor = UIColor.black
+            watcherCountLabel.textColor = UIColor.black
+            forkCountLabel.textColor = UIColor.black
+            watchersTitleLabel.textColor = UIColor.black
             forksTitleLabel.textColor = UIColor.black
             dataTitleLabel.textColor = UIColor.black
-            totalForksLabel.textColor = UIColor.black
         }
     }
 }

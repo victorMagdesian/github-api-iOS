@@ -12,14 +12,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositorioViewController" customModule="github_api_ios" customModuleProvider="target">
             <connections>
                 <outlet property="bottomView" destination="pIr-kj-jEL" id="Upn-5s-gfn"/>
-                <outlet property="dataTitleLabel" destination="lfe-g8-GiL" id="CJc-Nx-H37"/>
+                <outlet property="dateLabel" destination="6Dw-VD-TWG" id="ugL-c9-JcX"/>
+                <outlet property="dateTitleLabel" destination="lfe-g8-GiL" id="CJc-Nx-H37"/>
+                <outlet property="forkCountLabel" destination="Hf9-e2-lgS" id="ODG-0G-cUa"/>
                 <outlet property="forksTitleLabel" destination="gRA-Zq-W1m" id="k66-PY-Yzk"/>
-                <outlet property="nomeRepositorioLabel" destination="itM-No-zDw" id="eKc-4L-3FF"/>
-                <outlet property="seguidoresTitleLabel" destination="1HO-kM-vyF" id="fUV-dT-9S2"/>
+                <outlet property="repositoryName" destination="itM-No-zDw" id="eKc-4L-3FF"/>
+                <outlet property="stargazerCountLabel" destination="Hf9-e2-lgS" id="fnL-R6-Yd8"/>
                 <outlet property="topView" destination="5Ob-vo-qu4" id="o7P-HC-MCi"/>
-                <outlet property="totalEstrelasLabel" destination="Hf9-e2-lgS" id="fnL-R6-Yd8"/>
-                <outlet property="totalForksLabel" destination="Hf9-e2-lgS" id="ODG-0G-cUa"/>
-                <outlet property="totalSeguidoresLabel" destination="lCk-cj-lL7" id="i3k-Yc-f1B"/>
+                <outlet property="watcherCountLabel" destination="lCk-cj-lL7" id="i3k-Yc-f1B"/>
+                <outlet property="watchersTitleLabel" destination="1HO-kM-vyF" id="fUV-dT-9S2"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
