@@ -29,7 +29,8 @@
 		8EE308D22760BE3700E1DE40 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE308D12760BE3700E1DE40 /* RxCocoa */; };
 		8EE308D42760BE3700E1DE40 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE308D32760BE3700E1DE40 /* RxSwift */; };
 		8EEFB453275FC3030031AE53 /* DetalheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EEFB452275FC3030031AE53 /* DetalheViewController.xib */; };
-		CD7B011427614DE200248B2A /* RepositorioCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7B011327614DE200248B2A /* RepositorioCollectionViewCell.xib */; };
+		CD7B011427614DE200248B2A /* RepositorioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7B011327614DE200248B2A /* RepositorioView.xib */; };
+		CDA67BB727624C1D007C2557 /* RepositorioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA67BB627624C1D007C2557 /* RepositorioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,8 @@
 		8E9A60DB27614C02004126BB /* GithubRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		8E9A60DC27614C02004126BB /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8EEFB452275FC3030031AE53 /* DetalheViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetalheViewController.xib; sourceTree = "<group>"; };
-		CD7B011327614DE200248B2A /* RepositorioCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositorioCollectionViewCell.xib; sourceTree = "<group>"; };
+		CD7B011327614DE200248B2A /* RepositorioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositorioView.xib; sourceTree = "<group>"; };
+		CDA67BB627624C1D007C2557 /* RepositorioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		8C4D9B0E275ED80A00A2E3D3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				CDA67BB527624C02007C2557 /* Components */,
 				8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */,
 				8C4D9B12275ED89700A2E3D3 /* ViewModels */,
 				8C4D9B11275ED84200A2E3D3 /* ViewControllers */,
@@ -166,7 +169,7 @@
 				8EEFB452275FC3030031AE53 /* DetalheViewController.xib */,
 				8C56FDA5276138DC004598BA /* HomeViewController.xib */,
 				8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */,
-				CD7B011327614DE200248B2A /* RepositorioCollectionViewCell.xib */,
+				CD7B011327614DE200248B2A /* RepositorioView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,14 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CDA67BB527624C02007C2557 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CDA67BB627624C1D007C2557 /* RepositorioViewController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +268,7 @@
 				8C4D9B16275ED9BE00A2E3D3 /* FiltroViewController.xib in Resources */,
 				4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */,
 				8EEFB453275FC3030031AE53 /* DetalheViewController.xib in Resources */,
-				CD7B011427614DE200248B2A /* RepositorioCollectionViewCell.xib in Resources */,
+				CD7B011427614DE200248B2A /* RepositorioView.xib in Resources */,
 				8C56FDA7276138DC004598BA /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA67BB727624C1D007C2557 /* RepositorioViewController.swift in Sources */,
 				8C4D9B15275ED9BE00A2E3D3 /* FiltroViewController.swift in Sources */,
 				8E9A60D527614BDC004126BB /* Release.swift in Sources */,
 				4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */,

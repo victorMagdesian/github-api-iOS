@@ -50,7 +50,6 @@ class HomeViewController: UIViewController {
         coordinator?.filtro()
     }
 
-
     @IBAction func limparFiltros(_ sender: UIButton) {
         filtrosSelecionados = []
         carregarFiltrosSelecionados()
