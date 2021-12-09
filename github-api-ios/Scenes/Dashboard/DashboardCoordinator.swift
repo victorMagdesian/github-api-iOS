@@ -32,8 +32,8 @@ class DashboardCoordinator: Coordinator {
         navigationController!.pushViewController(viewCont, animated: true)
     }
 
-    func applyFilters(filters: [String]) {
-        self.filters?.append(contentsOf: filters)
+    func storeFilters(filters: [String]) {
+        self.filters = filters
     }
 
     func sendBackToHome() {
