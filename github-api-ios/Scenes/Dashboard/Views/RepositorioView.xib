@@ -9,7 +9,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositorioViewController" customModule="github_api_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomView" destination="pIr-kj-jEL" id="Upn-5s-gfn"/>
+                <outlet property="dataTitleLabel" destination="lfe-g8-GiL" id="CJc-Nx-H37"/>
+                <outlet property="forksTitleLabel" destination="gRA-Zq-W1m" id="k66-PY-Yzk"/>
+                <outlet property="nomeRepositorioLabel" destination="itM-No-zDw" id="eKc-4L-3FF"/>
+                <outlet property="seguidoresTitleLabel" destination="1HO-kM-vyF" id="fUV-dT-9S2"/>
+                <outlet property="topView" destination="5Ob-vo-qu4" id="o7P-HC-MCi"/>
+                <outlet property="totalEstrelasLabel" destination="Hf9-e2-lgS" id="fnL-R6-Yd8"/>
+                <outlet property="totalForksLabel" destination="Hf9-e2-lgS" id="ODG-0G-cUa"/>
+                <outlet property="totalSeguidoresLabel" destination="lCk-cj-lL7" id="i3k-Yc-f1B"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Tpf-3a-dnJ">
             <rect key="frame" x="0.0" y="0.0" width="311" height="155"/>
@@ -78,20 +90,20 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estrelas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRA-Zq-W1m">
-                            <rect key="frame" x="124" y="16" width="39" height="12"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRA-Zq-W1m">
+                            <rect key="frame" x="124" y="16" width="27" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfe-g8-GiL">
-                            <rect key="frame" x="208" y="16" width="23" height="12"/>
+                            <rect key="frame" x="196" y="16" width="23" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Dw-VD-TWG">
-                            <rect key="frame" x="208" y="30" width="16" height="15"/>
+                            <rect key="frame" x="196" y="30" width="16" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
