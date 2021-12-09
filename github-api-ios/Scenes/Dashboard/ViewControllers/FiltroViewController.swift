@@ -96,15 +96,16 @@ class FiltroViewController: UIViewController {
     @IBAction func applyButton(_ sender: UIButton) {
         print("aplicando filtro...")
 
-        var filtersName = [String]()
-
         selectedButtons.forEach {
-            filtersName.append(($0.titleLabel?.text)!)
+            $0.backgroundColor = .none
+            $0.setImage(UIImage(named: "Fechar-Black"), for: .normal)
+            $0.semanticContentAttribute = .forceRightToLeft
+            $0.setTitleColor(.black, for: .selected)
+            $0.isSelected = false
+            $0.removeTarget(self, action: nil, for: .touchUpInside)
         }
 
-        print(filtersName)
-
-        coordinator?.storeFilters(filters: filtersName)
+        coordinator?.storeFilters(filters: selectedButtons)
         coordinator?.sendBackToHome()
     }
 }

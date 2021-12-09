@@ -93,6 +93,7 @@
 			children = (
 				4EFF7C2D275AB7DE00016E16 /* github-api-ios */,
 				4EFF7C2C275AB7DE00016E16 /* Products */,
+				81C233D027625DF900509D13 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,9 +128,17 @@
 		81C233CD2762493B00509D13 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CDA67BB627624C1D007C2557 /* RepositorioViewController.swift */,
 				81C233CE2762495700509D13 /* CustomFilterButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		81C233D027625DF900509D13 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		8C4D9B0A275EB18300A2E3D3 /* WebServices */ = {
@@ -181,7 +190,6 @@
 				8EEFB452275FC3030031AE53 /* DetalheViewController.xib */,
 				8C56FDA5276138DC004598BA /* HomeViewController.xib */,
 				8C4D9B14275ED9BE00A2E3D3 /* FiltroViewController.xib */,
-				CD7B011327614DE200248B2A /* RepositorioCollectionViewCell.xib */,
 				81C233CB2762422800509D13 /* CustomFilterButton.xib */,
 				CD7B011327614DE200248B2A /* RepositorioView.xib */,
 			);
@@ -203,14 +211,6 @@
 			children = (
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		CDA67BB527624C02007C2557 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				CDA67BB627624C1D007C2557 /* RepositorioViewController.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

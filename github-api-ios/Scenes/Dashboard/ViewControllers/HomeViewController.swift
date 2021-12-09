@@ -25,15 +25,25 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         indicadorDeAtividadeTextBox.isHidden = true
 
-        if let filtros = coordinator?.filters {
-            numeroFiltrosLabel.text = String(filtros.count)
+        if let buttonFilters = coordinator?.filters {
+            numeroFiltrosLabel.text = String(buttonFilters.count)
 
-            for filtro in filtros {
-                let button = UIButton() // vamos mudar para uma custom view
-                button.setTitle(filtro, for: .normal)
-                button.layer.borderWidth = 2
-                button.layer.borderColor = UIColor.black.cgColor
-                filtrosHomeStackView.addArrangedSubview(button)
+            for filtro in buttonFilters {
+
+//                let buttonContainer = UIView()
+//                let button = CustomFilterButton() // vamos mudar para uma custom view
+//                
+//                button.filterButton.setTitle(filtro, for: .normal)
+//               
+//                buttonContainer.addSubview(button)
+
+//                button.layer.borderWidth = 2
+//                button.layer.borderColor = UIColor.black.cgColor
+
+                filtrosHomeStackView.addArrangedSubview(filtro)
+                filtrosHomeStackView.setCustomSpacing(8, after: filtro)
+
+//                filtro.addTarget(nil, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
 
             }
 
@@ -56,7 +66,6 @@ class HomeViewController: UIViewController {
 //        for filtro in filtros {
 //            filtro.isHidden = !filtrosSelecionados.contains(filtro)
 //        }
-
 
     @IBAction func limparFiltros(_ sender: UIButton) {
         filtrosSelecionados = []
