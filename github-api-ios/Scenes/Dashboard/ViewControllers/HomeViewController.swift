@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
 //        for filtro in filtros {
 //            filtro.isHidden = !filtrosSelecionados.contains(filtro)
 //        }
-    }
+//    }
 
     @IBAction func limparFiltros(_ sender: UIButton) {
         filtrosSelecionados = []
