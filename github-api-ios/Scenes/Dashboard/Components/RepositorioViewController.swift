@@ -31,7 +31,7 @@ class RepositorioViewController: UIViewController {
             forkCountLabel.textColor = UIColor.black
             watchersTitleLabel.textColor = UIColor.black
             forksTitleLabel.textColor = UIColor.black
-            dataTitleLabel.textColor = UIColor.black
+            dateTitleLabel.textColor = UIColor.black
         }
     }
 }
