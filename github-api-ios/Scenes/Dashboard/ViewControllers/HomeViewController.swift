@@ -22,22 +22,21 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         activityIndicatorView.isHidden = true
 
-        if let filters = coordinator?.filters {
-            filterCountLabel.text = String(filters.count)
 
-            for filter in filters {
-                let button = UIButton() // vamos mudar para uma custom view
-                button.setTitle(filter, for: .normal)
-                button.layer.borderWidth = 2
-                button.layer.borderColor = UIColor.black.cgColor
-                button.backgroundColor = UIColor.white
-                button.setTitleColor(UIColor.black, for: .normal)
-                filtrosHomeStackView.addArrangedSubview(button)
+        if let buttonFilters = coordinator?.filters {
+            numeroFiltrosLabel.text = String(buttonFilters.count)
+
+            buttonFilters.forEach {
+                $0.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
+
+                filtrosHomeStackView.addArrangedSubview($0)
+                filtrosHomeStackView.setCustomSpacing(8, after: $0)
             }
-
         }
+
         filterTextField.delegate = self
         filterTextField.becomeFirstResponder()
+
     }
 
     @IBAction func goToFilter(_ sender: Any) {
@@ -71,5 +70,28 @@ extension HomeViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         activityIndicatorView.isHidden = true
+    }
+}
+
+extension HomeViewController {
+    @objc private func removeFilter(_ sender: UIButton) {
+        sender.isSelected = false
+
+        guard let indexButton = coordinator?.filters.firstIndex(of: sender) else {
+            return
+        }
+
+        coordinator?.filters.remove(at: indexButton)
+
+        guard let countFilters = coordinator?.filters.count else { return }
+
+        numeroFiltrosLabel.text = String(countFilters)
+
+        UIView.animate(withDuration: 0.4, delay: 0, options: []) {
+            sender.transform = CGAffineTransform(translationX: 0, y: 20)
+            sender.alpha = 0
+        } completion: { _ in
+            sender.removeFromSuperview()
+        }
     }
 }

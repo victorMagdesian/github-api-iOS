@@ -6,7 +6,7 @@ class DashboardCoordinator: Coordinator {
     weak var parentCoordinator: AppCoordinator?
     var navigationController: UINavigationController?
 
-    var filters: [String]?
+    var filters: [UIButton] = []
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -32,8 +32,8 @@ class DashboardCoordinator: Coordinator {
         navigationController!.pushViewController(viewCont, animated: true)
     }
 
-    func storeFilters(filters: [String]) {
-        self.filters = filters
+    func storeFilters(filters: [UIButton]) {
+        self.filters.append(contentsOf: filters)
     }
 
     func sendBackToHome() {

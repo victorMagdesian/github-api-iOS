@@ -8,7 +8,7 @@ class AppCoordinator: Coordinator {
 
     var navController: UINavigationController = {
         let nav = UINavigationController()
-        nav.pushViewController(FiltroViewController(), animated: true)
+        nav.pushViewController(HomeViewController(), animated: true)
         nav.setNavigationBarHidden(true, animated: false)
         return nav
     }()
