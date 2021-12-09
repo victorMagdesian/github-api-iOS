@@ -14,7 +14,7 @@ class NetworkService {
         return Observable.create { observer -> Disposable in
             let task = URLSession.shared.dataTask(with: url) { data, _, _ in
                 guard let data = data, let decoded = try? JSONDecoder().decode(T.self, from: data) else {
-                    print("error on converting data or decoded")
+                    print("error on converting data or decoded for \(type(of: T.self))")
                     return
                 }
                 observer.onNext(decoded)

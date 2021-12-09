@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="github_api_ios" customModuleProvider="target">
             <connections>
-                <outlet property="botaoPesquisar" destination="tR3-Zv-T0v" id="XjR-2V-p67"/>
-                <outlet property="filtrarTextField" destination="ClU-Hq-0k0" id="7SS-hK-TkH"/>
+                <outlet property="activityIndicatorView" destination="Lwq-TB-sUs" id="BPC-aT-xqg"/>
+                <outlet property="filterCountLabel" destination="ztR-mT-QIJ" id="hAx-ZA-P6w"/>
+                <outlet property="filterTextField" destination="ClU-Hq-0k0" id="7SS-hK-TkH"/>
                 <outlet property="filtrosHomeStackView" destination="DTb-jL-i5P" id="RbI-jG-oBK"/>
-                <outlet property="indicadorDeAtividadeTextBox" destination="Lwq-TB-sUs" id="BPC-aT-xqg"/>
-                <outlet property="numeroFiltrosLabel" destination="ztR-mT-QIJ" id="hAx-ZA-P6w"/>
+                <outlet property="searchButton" destination="tR3-Zv-T0v" id="XjR-2V-p67"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="skY-Xc-KE3"/>
             </connections>
         </placeholder>
@@ -51,7 +51,7 @@
                                         <attributedString key="attributedTitle"/>
                                     </state>
                                     <connections>
-                                        <action selector="focoCampoDeTexto:" destination="-1" eventType="touchUpInside" id="qtb-vB-cRv"/>
+                                        <action selector="focusFilterTextField:" destination="-1" eventType="touchUpInside" id="RMg-UU-Qiu"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5KR-so-AlS" userLabel="numeroNotificacoesView">
@@ -119,7 +119,7 @@
                             <rect key="frame" x="64" y="-13" width="286" height="46"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTRAR POR NOME?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-9w-aF0">
-                                    <rect key="frame" x="12" y="0.0" width="93.333333333333329" height="11"/>
+                                    <rect key="frame" x="12" y="0.0" width="93.666666666666671" height="11"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxs-1v-EAx" userLabel="FilterView">
-                    <rect key="frame" x="0.0" y="208" width="414" height="654"/>
+                    <rect key="frame" x="0.0" y="208" width="414" height="71"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTRANDO:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVv-uu-d9R">
                             <rect key="frame" x="8" y="0.0" width="54" height="11"/>
@@ -171,6 +171,7 @@
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+
                         <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DTb-jL-i5P">
                             <rect key="frame" x="8" y="29" width="398" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,10 +183,11 @@
                     <color key="backgroundColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="DTb-jL-i5P" firstAttribute="leading" secondItem="jVv-uu-d9R" secondAttribute="leading" id="1Zw-Aw-kLo"/>
+                        <constraint firstAttribute="height" constant="71" id="SPF-Mb-hVW"/>
                         <constraint firstItem="jVv-uu-d9R" firstAttribute="top" secondItem="wxs-1v-EAx" secondAttribute="top" id="Wbc-Xk-y9Q"/>
                         <constraint firstItem="jVv-uu-d9R" firstAttribute="leading" secondItem="wxs-1v-EAx" secondAttribute="leading" constant="8" id="YXG-Ny-Z08"/>
                         <constraint firstAttribute="trailing" secondItem="DTb-jL-i5P" secondAttribute="trailing" constant="8" id="oBm-vC-RdF"/>
-                        <constraint firstItem="DTb-jL-i5P" firstAttribute="top" secondItem="jVv-uu-d9R" secondAttribute="bottom" constant="18" id="tMj-mZ-d0C"/>
+                        <constraint firstItem="DTb-jL-i5P" firstAttribute="top" secondItem="jVv-uu-d9R" secondAttribute="bottom" constant="8" id="tMj-mZ-d0C"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zd-qr-dzh" userLabel="BottomView">
@@ -200,7 +202,7 @@
                                 <color key="titleColor" red="0.32079941029999998" green="0.79502302410000003" blue="0.68345230820000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="limparFiltros:" destination="-1" eventType="touchUpInside" id="TQH-Oc-bco"/>
+                                <action selector="clearFilters:" destination="-1" eventType="touchUpInside" id="gnN-iC-X8E"/>
                             </connections>
                         </button>
                     </subviews>
@@ -213,35 +215,36 @@
                         <constraint firstItem="7yp-1e-FDy" firstAttribute="top" secondItem="5Zd-qr-dzh" secondAttribute="top" id="beE-dv-2eG"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtb-Yd-mBe">
+                    <rect key="frame" x="0.0" y="287" width="414" height="523"/>
+                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="eEJ-zN-LH7"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="V5N-hK-DPo"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="wxs-1v-EAx" firstAttribute="bottom" secondItem="5Zd-qr-dzh" secondAttribute="bottom" id="3cl-wG-GtC"/>
+                <constraint firstItem="vtb-Yd-mBe" firstAttribute="leading" secondItem="7yp-1e-FDy" secondAttribute="trailing" constant="-414" id="9fk-ZC-HOY"/>
+                <constraint firstItem="vtb-Yd-mBe" firstAttribute="leading" secondItem="wxs-1v-EAx" secondAttribute="trailing" constant="-414" id="BAL-P4-4Ba"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Zd-qr-dzh" secondAttribute="trailing" id="Cua-uP-5VC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wxs-1v-EAx" secondAttribute="trailing" id="FeE-3j-ad2"/>
                 <constraint firstItem="4bK-wh-CRM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gyg-n2-C2S"/>
                 <constraint firstItem="Pw8-oN-MKX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="MpO-HD-9gu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vtb-Yd-mBe" secondAttribute="trailing" id="Ow0-Sg-0jW"/>
+                <constraint firstItem="vtb-Yd-mBe" firstAttribute="top" secondItem="wxs-1v-EAx" secondAttribute="bottom" constant="8" id="Tkd-gJ-S0g"/>
                 <constraint firstItem="wxs-1v-EAx" firstAttribute="top" secondItem="Lwq-TB-sUs" secondAttribute="bottom" constant="17" id="U4O-Qg-0nh"/>
                 <constraint firstItem="wxs-1v-EAx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZO5-hn-sQe"/>
                 <constraint firstItem="5Zd-qr-dzh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="b1V-uk-egw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vtb-Yd-mBe" secondAttribute="bottom" constant="52" id="fPR-cI-EN1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5Zd-qr-dzh" secondAttribute="bottom" id="hZr-PA-WeI"/>
+                <constraint firstItem="vtb-Yd-mBe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lIh-W3-DoC"/>
                 <constraint firstItem="Pw8-oN-MKX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qbc-Rf-ldd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4bK-wh-CRM" secondAttribute="trailing" id="sHm-n5-NNP"/>
                 <constraint firstItem="Pw8-oN-MKX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ub7-BQ-3NL"/>
                 <constraint firstItem="4bK-wh-CRM" firstAttribute="top" secondItem="Pw8-oN-MKX" secondAttribute="bottom" constant="-28" id="yJe-gY-L3n"/>
             </constraints>
             <point key="canvasLocation" x="-33.333333333333336" y="81.026785714285708"/>
-        </view>
-        <view contentMode="scaleToFill" id="ogr-TL-iTx">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="147"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <viewLayoutGuide key="safeArea" id="Rpn-tK-XpH"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <nil key="simulatedTopBarMetrics"/>
-            <nil key="simulatedBottomBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="991.304347826087" y="262.16517857142856"/>
         </view>
     </objects>
     <resources>

@@ -9,21 +9,19 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet var botaoPesquisar: UIButton!
-    @IBOutlet var botaoFiltroData: UIView!
-    @IBOutlet var botaoFiltroSeguidores: UIView!
-    @IBOutlet var botaoFiltroDecrescente: UIView!
-    @IBOutlet var filtrarTextField: UITextField!
-    @IBOutlet var indicadorDeAtividadeTextBox: UIView!
-
-    @IBOutlet var numeroFiltrosLabel: UILabel!
-    var coordinator: DashboardCoordinator?
-    var filtrosSelecionados = [UIView]()
+    @IBOutlet var searchButton: UIButton!
+    @IBOutlet var filterTextField: UITextField!
+    @IBOutlet var activityIndicatorView: UIView!
+    @IBOutlet var filterCountLabel: UILabel!
     @IBOutlet var filtrosHomeStackView: UIStackView!
+
+    var coordinator: DashboardCoordinator?
+    var selectedFilters = [UIView]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        indicadorDeAtividadeTextBox.isHidden = true
+        activityIndicatorView.isHidden = true
+
 
         if let buttonFilters = coordinator?.filters {
             numeroFiltrosLabel.text = String(buttonFilters.count)
@@ -33,50 +31,45 @@ class HomeViewController: UIViewController {
 
                 filtrosHomeStackView.addArrangedSubview($0)
                 filtrosHomeStackView.setCustomSpacing(8, after: $0)
-
             }
         }
 
-        filtrarTextField.delegate = self
-        filtrarTextField.becomeFirstResponder()
+        filterTextField.delegate = self
+        filterTextField.becomeFirstResponder()
+
     }
 
     @IBAction func goToFilter(_ sender: Any) {
         coordinator?.filtro()
     }
 
-//    func carregarFiltrosSelecionados() {
-//        for filtro in filtros {
-//            filtro.isHidden = !filtrosSelecionados.contains(filtro)
-//        }
-
-    @IBAction func limparFiltros(_ sender: UIButton) {
-        filtrosSelecionados.removeAll()
-//        carregarFiltrosSelecionados()
+    @IBAction func focusFilterTextField(_ sender: Any) {
+        filterTextField.becomeFirstResponder()
     }
 
-    @IBAction func focoCampoDeTexto(_ sender: Any) {
-        filtrarTextField.becomeFirstResponder()
+    @IBAction func clearFilters(_ sender: Any) {
+        coordinator?.filters = []
+        filtrosHomeStackView.subviews.forEach {$0.removeFromSuperview()}
     }
 }
 
 extension HomeViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        indicadorDeAtividadeTextBox.isHidden = false
+        activityIndicatorView.isHidden = false
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        indicadorDeAtividadeTextBox.isHidden = false
+        activityIndicatorView.isHidden = false
 
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        filtrarTextField.endEditing(true)
+        filterTextField.endEditing(true)
         super.touchesBegan(touches, with: event)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        indicadorDeAtividadeTextBox.isHidden = true
+        activityIndicatorView.isHidden = true
     }
 }
 
