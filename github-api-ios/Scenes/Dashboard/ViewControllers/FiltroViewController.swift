@@ -104,7 +104,7 @@ class FiltroViewController: UIViewController {
 
         print(filtersName)
 
-        coordinator?.applyFilters(filters: filtersName)
+        coordinator?.storeFilters(filters: filtersName)
         coordinator?.sendBackToHome()
     }
 }

@@ -37,6 +37,10 @@ class HomeViewController: UIViewController {
         for filtro in filtros {
 
         }
+
+        // pra pegar o nome dos filtros
+        print(coordinator?.filters)
+
         filtrarTextField.delegate = self
         filtrarTextField.becomeFirstResponder()
     }
