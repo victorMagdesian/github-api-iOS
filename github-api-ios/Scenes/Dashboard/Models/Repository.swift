@@ -1,3 +1,4 @@
+import Foundation
 struct Repository: Decodable {
     let repositoryName: String
     let ownerName: String
@@ -27,4 +28,5 @@ extension Repository {
         case watchersCount = "watchers_count"
         case updatedAt = "updated_at"
     }
+
 }
