@@ -139,7 +139,7 @@ extension FiltroViewController {
             fatalError()
         }
         if let filters = coordinator?.filters {
-            if filters.contains(buttonTitle) {
+            if filters.contains(where: { $0.titleLabel?.text == buttonTitle }) {
                 setButtonSelected(button)
             }
         }

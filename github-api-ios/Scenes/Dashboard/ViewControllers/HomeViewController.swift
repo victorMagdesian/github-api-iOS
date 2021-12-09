@@ -22,9 +22,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         activityIndicatorView.isHidden = true
 
-
         if let buttonFilters = coordinator?.filters {
-            numeroFiltrosLabel.text = String(buttonFilters.count)
+            filterCountLabel.text = String(buttonFilters.count)
 
             buttonFilters.forEach {
                 $0.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
@@ -85,7 +84,7 @@ extension HomeViewController {
 
         guard let countFilters = coordinator?.filters.count else { return }
 
-        numeroFiltrosLabel.text = String(countFilters)
+        filterCountLabel.text = String(countFilters)
 
         UIView.animate(withDuration: 0.4, delay: 0, options: []) {
             sender.transform = CGAffineTransform(translationX: 0, y: 20)

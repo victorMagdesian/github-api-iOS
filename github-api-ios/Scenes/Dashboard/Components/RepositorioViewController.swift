@@ -18,9 +18,9 @@ class RepositorioViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var forksTitleLabel: UILabel!
     @IBOutlet var dateTitleLabel: UILabel!
-    
+
     let isDark: Bool = true
-    
+
     override func viewDidLoad() {
         if !isDark {
             topView.backgroundColor = UIColor.white
