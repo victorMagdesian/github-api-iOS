@@ -9,7 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet var botaoNumeroNotificacoes: UIButton!
     @IBOutlet var botaoPesquisar: UIButton!
     @IBOutlet var botaoFiltroData: UIView!
     @IBOutlet var botaoFiltroSeguidores: UIView!
@@ -17,30 +16,18 @@ class HomeViewController: UIViewController {
     @IBOutlet var filtrarTextField: UITextField!
     @IBOutlet var indicadorDeAtividadeTextBox: UIView!
 
+    @IBOutlet var numeroFiltrosLabel: UILabel!
     var coordinator: DashboardCoordinator?
-
-    var filtros = [UIView]()
     var filtrosSelecionados = [UIView]()
 
     override func viewDidLoad() {
-        print("Entrou aqui dnv")
-        indicadorDeAtividadeTextBox.isHidden = true
         super.viewDidLoad()
-
-        filtros = [
-            self.botaoFiltroData,
-            self.botaoFiltroSeguidores,
-            self.botaoFiltroDecrescente
-        ]
-        filtrosSelecionados = filtros
-
-        for filtro in filtros {
-
-        }
+        indicadorDeAtividadeTextBox.isHidden = true
 
         // pra pegar o nome dos filtros
-        print(coordinator?.filters)
-
+        if let filtros = coordinator?.filters {
+            numeroFiltrosLabel.text = String(filtros.count)
+        }
         filtrarTextField.delegate = self
         filtrarTextField.becomeFirstResponder()
     }
