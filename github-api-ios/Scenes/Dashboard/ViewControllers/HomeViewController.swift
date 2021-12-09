@@ -19,14 +19,24 @@ class HomeViewController: UIViewController {
     @IBOutlet var numeroFiltrosLabel: UILabel!
     var coordinator: DashboardCoordinator?
     var filtrosSelecionados = [UIView]()
+    @IBOutlet var filtrosHomeStackView: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         indicadorDeAtividadeTextBox.isHidden = true
 
-        // pra pegar o nome dos filtros
         if let filtros = coordinator?.filters {
             numeroFiltrosLabel.text = String(filtros.count)
+
+            for filtro in filtros {
+                let button = UIButton() // vamos mudar para uma custom view
+                button.setTitle(filtro, for: .normal)
+                button.layer.borderWidth = 2
+                button.layer.borderColor = UIColor.black.cgColor
+                filtrosHomeStackView.addArrangedSubview(button)
+
+            }
+
         }
         filtrarTextField.delegate = self
         filtrarTextField.becomeFirstResponder()
@@ -41,11 +51,10 @@ class HomeViewController: UIViewController {
     }
 
     func carregarFiltrosSelecionados() {
-        /* for filtro in filtros {
-            filtro.isHidden = !filtrosSelecionados.contains(filtro)
-        }
-    */
-    }
+//        for filtro in filtros {
+//            filtro.isHidden = !filtrosSelecionados.contains(filtro)
+//        }
+//    }
 
     @IBAction func limparFiltros(_ sender: UIButton) {
         filtrosSelecionados = []
