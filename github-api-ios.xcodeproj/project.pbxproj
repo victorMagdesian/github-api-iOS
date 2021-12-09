@@ -132,7 +132,6 @@
 		8C4D9B0D275ED7F500A2E3D3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CDA67BB527624C02007C2557 /* Components */,
 				8C4D9B0E275ED80A00A2E3D3 /* Dashboard */,
 			);
 			path = Scenes;
@@ -141,6 +140,7 @@
 		8C4D9B0E275ED80A00A2E3D3 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				CDA67BB527624C02007C2557 /* Components */,
 				8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */,
 				8C4D9B12275ED89700A2E3D3 /* ViewModels */,
 				8C4D9B11275ED84200A2E3D3 /* ViewControllers */,
