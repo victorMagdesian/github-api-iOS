@@ -20,7 +20,7 @@ class DashboardCoordinator: Coordinator {
     }
 
     func filtro() {
-        let viewCont = DetalheViewController()
+        let viewCont = FiltroViewController()
         viewCont.coordinator = self
         // viewCont.coordinator?.navigationController = self.navigationController
         navigationController!.pushViewController(viewCont, animated: true)
