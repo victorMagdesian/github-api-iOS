@@ -32,5 +32,4 @@ class GithubRepository {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/contributors"
         return networkService.execute(url: URL(string: urlString)!)
     }
-
 }

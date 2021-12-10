@@ -48,9 +48,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                             updatedAt: $0.updatedAt,
                             forksCount: $0.forksCount
                         )
-
                         self.repositories.append(repositoryHome)
-
                     }
                 }, onCompleted: {
                     for values in (0..<self.repositories.count) {
@@ -62,6 +60,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                         repositoryView.forksCount.text = String(self.repositories[values].forksCount)
                         repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
                         repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
+
                         repositoryView.lastCommitDataInDays.text = self.repositories[values].getLastUpdatedDay() == 0 ? "Today" : String(self.repositories[values].getLastUpdatedDay())
 
                         repositoryView.ownerName = self.repositories[values].ownerName
@@ -71,20 +70,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                         }
 
                         repositoryView.translatesAutoresizingMaskIntoConstraints = false
-
                         self.repositoriesStackView.addArrangedSubview(repositoryView)
 
                         NSLayoutConstraint.activate([
                             repositoryView.heightAnchor.constraint(equalToConstant: 155),
                             repositoryView.widthAnchor.constraint(equalTo: self.repositoriesStackView.widthAnchor)
                         ])
-
-                        repositoryView.addTarget(
-                            self,
-                            action: #selector(self.goToDetails),
-                            for: .touchUpInside
-                        )
-
+                        repositoryView.addTarget(self, action: #selector(self.goToDetails), for: .touchUpInside)
                     }
                 }).disposed(by: disposeViewBag)
 
