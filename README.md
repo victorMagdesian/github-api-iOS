@@ -1,20 +1,35 @@
-# Github Teste
 
-## Github API
-https://developer.github.com/v3
+![logo Banco Modal Mais](logomodalmais.png)
 
-## Descrição
+<h1 align="center">Desafio iOS Modal 🍎</h1>
 
-Você precisa listar os principais repositórios e criar um filtro por estrelas, seguidores, data do ultimo commit.
+  > O nosso objetivo foi construir uma aplicação iOS usando Swift para consumir a API do GitHub seguindo o escopo do desafio do Banco Modal.
 
-- Mostrar ícone e informações básicas do repo.
-- Paginação com rolagem infinita.
-- Puxe para atualizar a lista de pedidos.
-- Segue anexo arquivo Github Teste.fig com o layout a ser seguido, importar o layout no app figma: https://www.figma.com/downloads/
+## Escopo do Projeto 🖥️
+O app deve mostrar os principais repositórios e criar um filtro por estrelas, seguidores e data do ultimo commit.
 
-## Requisitos
+-   Mostrar ícone e informações básicas do repo.
+-   Paginação com rolagem infinita.
+-   Puxe para atualizar a lista de pedidos.
 
-Swift Guidelines: https://swift.org/documentation/api-design-guidelines/
+## Tela Inicial 🏠
+-- foto ou gif
+
+## Tela de Filtros 🔖
+-- foto ou gif
+
+## Tela de Detalhes 🔍
+-- foto ou gif
+
+## Autores 🚀
+
+👨‍🚀 [Aryel Santos](https://github.com/aryelsander)     👨‍🚀 [Victor Magdesian](https://github.com/victormagdesian)     👨‍🚀 [Victor Moura](https://github.com/vitutiv)     👨‍🚀 [Gabriel Matheus](https://github.com/gabrielrom)     👨‍🚀 [Pedro Castro](https://github.com/pedrogaldiano)
+
+![Logo Vaivoa](logovaivoa.png)
+
+
+
+## Requisitos 🧾
 
 - Higher Order Functions;
 - Autolayout;
@@ -27,17 +42,17 @@ Swift Guidelines: https://swift.org/documentation/api-design-guidelines/
 - SPM;
 - RxSwift – Única framework a ser adicionada no projeto;
 
-## Plus
+## Plus ➕
 
 - Unit/UI Tests XCTests;
 - Componentes customizados;
 - Fonte customizadas;
 - l10n;
 
-## PlusPlus
+## PlusPlus ➕➕
 
 - Faça tudo usando SwiftUI com Combine.
 
-## Entrega e Prazo
+## Entrega e Prazo 📅
 
 Você tem uma semana para terminar o teste e enviar o link do teste publicado no Github.
