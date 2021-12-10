@@ -64,6 +64,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                         repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
                         repositoryView.lastCommitDataInDays.text = self.repositories[values].getLastUpdatedDay() == 0 ? "Today" : String(self.repositories[values].getLastUpdatedDay())
 
+                        repositoryView.ownerName = self.repositories[values].ownerName
+
                         if values.isMultiple(of: 2) {
                             self.invertBackgroundRepository(repositoryView)
                         }
@@ -160,11 +162,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 //            self.moreData = false
 //           self.repositoriesStackView.reloadInputViews() // ele usou um self.tableView.reloadData()
 //        })
+        var repositoriesCount = 0
 
         githubRepository.getRepositories(page: paginationCount)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { (allRepos: Repositories) in
+                    repositoriesCount = allRepos.repositories.count
                     allRepos.repositories.forEach {
 
                         let repositoryHome = RepositoryHome(
@@ -180,7 +184,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
                     }
                 }, onCompleted: {
-                    for values in (0..<self.repositories.count) {
+                    for values in (self.repositories.count - repositoriesCount..<self.repositories.count) {
 
                         let repositoryView = RepositorioCustomView()
 
@@ -273,7 +277,7 @@ extension HomeViewController {
         repositoryView.stargazingCount.textColor = .black
     }
 
-    @objc func goToDetails(_ sender: Any) {
-        coordinator?.details()
+    @objc func goToDetails(_ sender: RepositorioCustomView) {
+        coordinator?.details(sender)
     }
 }

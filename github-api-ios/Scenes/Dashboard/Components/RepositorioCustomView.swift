@@ -12,6 +12,8 @@ class RepositorioCustomView: UIControl {
     @IBOutlet var topView: UIView!
     @IBOutlet var bottomView: UIView!
 
+    var ownerName: String?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.loadView()
