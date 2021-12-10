@@ -23,6 +23,7 @@ class FiltroViewController: UIViewController {
 
     override func viewDidLoad() {
         print("Entrou aqui dnv no filtro")
+
         super.viewDidLoad()
 
         let buttons: [UIButton] = [
@@ -96,7 +97,7 @@ class FiltroViewController: UIViewController {
             $0.isSelected = false
             $0.removeTarget(self, action: nil, for: .touchUpInside)
         }
-
+        coordinator?.filters.removeAll()
         coordinator?.storeFilters(filters: selectedButtons)
         coordinator?.sendBackToHome()
     }
