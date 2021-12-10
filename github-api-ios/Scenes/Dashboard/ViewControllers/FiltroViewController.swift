@@ -88,11 +88,33 @@ class FiltroViewController: UIViewController {
             setButtonUnSelected(existingDescendingButton!)
         }
 
-        if sender.isSelected {
-            setButtonUnSelected(sender)
+        if sender.titleLabel?.text != "DECRESCENTE" && sender.titleLabel?.text != "CRESCENTE" {
+            if sender.isSelected {
+                setButtonUnSelected(sender)
+            } else {
+                setButtonSelected(sender)
+            }
         } else {
-            setButtonSelected(sender)
+            switch sender.titleLabel?.text {
+            case "DECRESCENTE":
+                if sender.isSelected && (existingAscendingButton != nil) {
+                    setButtonUnSelected(sender)
+                } else {
+                    setButtonSelected(sender)
+                }
+            case "CRESCENTE":
+                if sender.isSelected && (existingDescendingButton != nil) {
+                    setButtonUnSelected(sender)
+                } else {
+                    setButtonSelected(sender)
+                }
+            case .none:
+                return
+            case .some:
+                return
+            }
         }
+
     }
 
     @IBAction func applyButton(_ sender: UIButton) {
