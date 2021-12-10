@@ -13,8 +13,7 @@ class GithubRepository {
     private let baseURLString = "https://api.github.com"
 
     func getRepositories(_ order: Repositories.OrderBy = .descending, page: Int = 1) -> Observable<Repositories> {
-        return networkService.execute(url: URL(string: baseURLString + "/search/repositories?q=github-api-iO" +
-           "S&sort=stars&order=desc&per_page=100&pages=\(page)")!)
+        return networkService.execute(url: URL(string: baseURLString + "/search/repositories?q=sort=stars&order=desc&per_page=100&page=\(page)")!)
     }
 
     func getBranches(ownerName: String, repositoryName: String) -> Observable<[Branch]> {
@@ -33,5 +32,4 @@ class GithubRepository {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/contributors"
         return networkService.execute(url: URL(string: urlString)!)
     }
-
 }

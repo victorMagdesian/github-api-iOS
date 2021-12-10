@@ -7,6 +7,7 @@ class DashboardCoordinator: Coordinator {
     var navigationController: UINavigationController?
 
     var filters: [UIButton] = []
+    var repositories = [RepositoryHome]()
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -26,8 +27,9 @@ class DashboardCoordinator: Coordinator {
         navigationController!.pushViewController(viewCont, animated: true)
     }
 
-    func details() {
+    func details(_ repository: RepositorioCustomView) {
         let viewCont = DetalheViewController()
+        viewCont.repository = repository
         viewCont.coordinator = self
         navigationController!.pushViewController(viewCont, animated: true)
     }

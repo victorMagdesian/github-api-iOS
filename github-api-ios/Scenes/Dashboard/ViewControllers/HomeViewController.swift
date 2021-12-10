@@ -63,7 +63,11 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
                         repositoryView.lastCommitDataInDays.text = self.repositories[values].getLastUpdatedDay() == 0 ? "Today" : String(self.repositories[values].getLastUpdatedDay())
 
-                        if values.isMultiple(of: 2) { self.invertBackgroundRepository(repositoryView) }
+                        repositoryView.ownerName = self.repositories[values].ownerName
+
+                        if values.isMultiple(of: 2) {
+                            self.invertBackgroundRepository(repositoryView)
+                        }
 
                         repositoryView.translatesAutoresizingMaskIntoConstraints = false
                         self.repositoriesStackView.addArrangedSubview(repositoryView)
@@ -150,11 +154,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 //            self.moreData = false
 //           self.repositoriesStackView.reloadInputViews() // ele usou um self.tableView.reloadData()
 //        })
+        var repositoriesCount = 0
 
         githubRepository.getRepositories(page: paginationCount)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { (allRepos: Repositories) in
+                    repositoriesCount = allRepos.repositories.count
                     allRepos.repositories.forEach {
 
                         let repositoryHome = RepositoryHome(
@@ -170,7 +176,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
                     }
                 }, onCompleted: {
-                    for values in (0..<self.repositories.count) {
+                    for values in (self.repositories.count - repositoriesCount..<self.repositories.count) {
 
                         let repositoryView = RepositorioCustomView()
 
@@ -202,5 +208,68 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                         self.moreData = false
                     }
                 }).disposed(by: disposeViewBag)
+    }
+}
+
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activityIndicatorView.isHidden = false
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        activityIndicatorView.isHidden = false
+
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        filterTextField.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activityIndicatorView.isHidden = true
+    }
+
+}
+
+extension HomeViewController {
+    @objc private func removeFilter(_ sender: UIButton) {
+        sender.isSelected = false
+
+        guard let indexButton = coordinator?.filters.firstIndex(of: sender) else {
+            return
+        }
+
+        coordinator?.filters.remove(at: indexButton)
+
+        guard let countFilters = coordinator?.filters.count else { return }
+
+        filterCountLabel.text = String(countFilters)
+
+        UIView.animate(withDuration: 0.4, delay: 0, options: []) {
+            sender.transform = CGAffineTransform(translationX: 0, y: 20)
+            sender.alpha = 0
+        } completion: { _ in
+            sender.removeFromSuperview()
+        }
+    }
+
+    private func invertBackgroundRepository(_ repositoryView: RepositorioCustomView) {
+        repositoryView.topView.backgroundColor = .white
+
+        repositoryView.bottomView.backgroundColor = UIColor(
+            red: CGFloat(126)/CGFloat(255),
+            green: CGFloat(126)/CGFloat(255),
+            blue: CGFloat(126)/CGFloat(255),
+            alpha: 1
+        )
+
+        repositoryView.totalStarsLabel.textColor = .black
+        repositoryView.repositoryName.textColor = .black
+        repositoryView.stargazingCount.textColor = .black
+    }
+
+    @objc func goToDetails(_ sender: RepositorioCustomView) {
+        coordinator?.details(sender)
     }
 }
