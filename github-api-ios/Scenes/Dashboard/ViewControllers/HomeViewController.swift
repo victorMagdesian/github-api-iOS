@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import RxSwift
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var searchButton: UIButton!
     @IBOutlet var filterTextField: UITextField!
@@ -16,12 +17,70 @@ class HomeViewController: UIViewController {
     @IBOutlet var filtrosHomeStackView: UIStackView!
 
     @IBOutlet var repositoriesStackView: UIStackView!
+    @IBOutlet var scrollView: UIScrollView!
 
     var coordinator: DashboardCoordinator?
     var selectedFilters = [UIView]()
 
+    let githubRepository = GithubRepository()
+    let disposeViewBag = DisposeBag()
+
+    var repositories = [RepositoryHome]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        githubRepository.getRepositories()
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onNext: { (allRepos: Repositories) in
+                    allRepos.repositories.forEach {
+
+                        let repositoryHome = RepositoryHome(
+                            repositoryName: $0.repositoryName,
+                            ownerName: $0.ownerName,
+                            stargazersCount: $0.stargazersCount,
+                            watchersCount: $0.watchersCount,
+                            updatedAt: $0.updatedAt,
+                            forksCount: $0.forksCount
+                        )
+
+                        self.repositories.append(repositoryHome)
+
+                    }
+                }, onCompleted: {
+                    for values in (0..<self.repositories.count) {
+
+                        let repositoryView = RepositorioCustomView()
+
+                        repositoryView.imageIcon.image = UIImage(named: "baixo_risco")
+                        repositoryView.repositoryName.text = self.repositories[values].repositoryName
+                        repositoryView.forksCount.text = String(self.repositories[values].forksCount)
+                        repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
+                        repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
+
+                        if values.isMultiple(of: 2) {
+                            self.invertBackgroundRepository(repositoryView)
+                        }
+
+                        repositoryView.translatesAutoresizingMaskIntoConstraints = false
+
+                        self.repositoriesStackView.addArrangedSubview(repositoryView)
+
+                        NSLayoutConstraint.activate([
+                            repositoryView.heightAnchor.constraint(equalToConstant: 155),
+                            repositoryView.widthAnchor.constraint(equalTo: self.repositoriesStackView.widthAnchor)
+                        ])
+
+                        repositoryView.addTarget(
+                            self,
+                            action: #selector(self.goToDetails),
+                            for: .touchUpInside
+                        )
+
+                    }
+                }).disposed(by: disposeViewBag)
+
         activityIndicatorView.isHidden = true
 
         if let buttonFilters = coordinator?.filters {
@@ -36,27 +95,7 @@ class HomeViewController: UIViewController {
         }
 
         filterTextField.delegate = self
-
-        for values in (1..<10) {
-
-            let repositoryView = RepositorioCustomView()
-
-            repositoryView.imageIcon.image = UIImage(named: "baixo_risco")
-
-            if values.isMultiple(of: 2) {
-                invertBackgroundRepository(repositoryView)
-            }
-
-            repositoryView.translatesAutoresizingMaskIntoConstraints = false
-
-            repositoriesStackView.addArrangedSubview(repositoryView)
-
-            NSLayoutConstraint.activate([
-                repositoryView.heightAnchor.constraint(equalToConstant: 155),
-                repositoryView.widthAnchor.constraint(equalTo: repositoriesStackView.widthAnchor)
-            ])
-
-        }
+        scrollView.delegate = self
 
     }
 
@@ -130,6 +169,9 @@ extension HomeViewController {
         repositoryView.totalStarsLabel.textColor = .black
         repositoryView.repositoryName.textColor = .black
         repositoryView.stargazingCount.textColor = .black
+    }
 
+    @objc func goToDetails(_ sender: Any) {
+        coordinator?.details()
     }
 }

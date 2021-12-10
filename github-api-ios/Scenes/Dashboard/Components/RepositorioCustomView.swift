@@ -1,6 +1,6 @@
 import UIKit
 
-class RepositorioCustomView: UIView {
+class RepositorioCustomView: UIControl {
     @IBOutlet var imageIcon: UIImageView!
     @IBOutlet var repositoryName: UILabel!
     @IBOutlet var stargazingCount: UILabel!
@@ -27,7 +27,7 @@ class RepositorioCustomView: UIView {
         let bundle = Bundle.init(for: RepositorioCustomView.self)
 
         if let repositorioXib = bundle.loadNibNamed("RepositorioView", owner: self, options: nil),
-           let contentView = repositorioXib.first as? UIView {
+           let contentView = repositorioXib.first as? UIControl {
             addSubview(contentView)
 
             contentView.autoresizingMask = [.flexibleWidth, .flexibleRightMargin]

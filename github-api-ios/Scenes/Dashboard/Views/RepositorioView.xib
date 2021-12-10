@@ -22,7 +22,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Tpf-3a-dnJ">
+        <view contentMode="scaleToFill" id="Tpf-3a-dnJ" customClass="UIControl">
             <rect key="frame" x="0.0" y="0.0" width="311" height="155"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>

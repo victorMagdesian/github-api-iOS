@@ -15,6 +15,7 @@
                 <outlet property="filterTextField" destination="ClU-Hq-0k0" id="7SS-hK-TkH"/>
                 <outlet property="filtrosHomeStackView" destination="DTb-jL-i5P" id="RbI-jG-oBK"/>
                 <outlet property="repositoriesStackView" destination="4MR-1D-rKN" id="SeJ-bA-qvS"/>
+                <outlet property="scrollView" destination="tqj-qA-J4D" id="9Lk-7r-4bs"/>
                 <outlet property="searchButton" destination="tR3-Zv-T0v" id="XjR-2V-p67"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="skY-Xc-KE3"/>
             </connections>

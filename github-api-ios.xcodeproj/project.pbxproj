@@ -10,6 +10,8 @@
 		4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C2E275AB7DE00016E16 /* AppDelegate.swift */; };
 		4EFF7C31275AB7DE00016E16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C30275AB7DE00016E16 /* SceneDelegate.swift */; };
 		4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFF7C37275AB7DF00016E16 /* Assets.xcassets */; };
+		81102E182763985100BA65F2 /* RepositoryHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81102E172763985100BA65F2 /* RepositoryHome.swift */; };
+		81102E1A2763B14700BA65F2 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81102E192763B14700BA65F2 /* RepositoryViewModel.swift */; };
 		8122B606275EA290007F6603 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B605275EA290007F6603 /* Coordinator.swift */; };
 		8122B608275EA7F2007F6603 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B607275EA7F1007F6603 /* AppCoordinator.swift */; };
 		8122B60B275EAB02007F6603 /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */; };
@@ -39,6 +41,8 @@
 		4EFF7C30275AB7DE00016E16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4EFF7C37275AB7DF00016E16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EFF7C3C275AB7DF00016E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81102E172763985100BA65F2 /* RepositoryHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryHome.swift; sourceTree = "<group>"; };
+		81102E192763B14700BA65F2 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 		8122B605275EA290007F6603 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8122B607275EA7F1007F6603 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8122B60A275EAB02007F6603 /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				8E9A60CF27614BDC004126BB /* Release.swift */,
 				8E9A60D127614BDC004126BB /* Repositories.swift */,
 				8E9A60D027614BDC004126BB /* Repository.swift */,
+				81102E172763985100BA65F2 /* RepositoryHome.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 		8C4D9B12275ED89700A2E3D3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				81102E192763B14700BA65F2 /* RepositoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81102E1A2763B14700BA65F2 /* RepositoryViewModel.swift in Sources */,
 				8C4D9B15275ED9BE00A2E3D3 /* FiltroViewController.swift in Sources */,
 				8E9A60D527614BDC004126BB /* Release.swift in Sources */,
 				4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */,
@@ -321,6 +328,7 @@
 				8E9A60D727614BDC004126BB /* Repositories.swift in Sources */,
 				8E9A60DA27614BDC004126BB /* Branch.swift in Sources */,
 				8E9A60D627614BDC004126BB /* Repository.swift in Sources */,
+				81102E182763985100BA65F2 /* RepositoryHome.swift in Sources */,
 				8122B608275EA7F2007F6603 /* AppCoordinator.swift in Sources */,
 				8E9A60D927614BDC004126BB /* Contributor.swift in Sources */,
 				8C56FDA6276138DC004598BA /* HomeViewController.swift in Sources */,
