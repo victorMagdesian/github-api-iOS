@@ -12,8 +12,9 @@ import UIKit
 class NetworkService {
     func execute<T: Decodable>(url: URL) -> Observable<T> {
         return Observable.create { observer -> Disposable in
-            let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            let task = URLSession.shared.dataTask(with: url) { data, response, _ in
                 guard let data = data, let decoded = try? JSONDecoder().decode(T.self, from: data) else {
+                    print("Response: \(String(describing: response)) \n\n\n")
                     print("error on converting data or decoded for \(type(of: T.self))")
                     return
                 }

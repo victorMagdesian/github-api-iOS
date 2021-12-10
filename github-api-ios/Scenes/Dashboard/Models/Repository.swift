@@ -5,7 +5,7 @@ struct Repository: Decodable {
     let stargazersCount: Int
     let watchersCount: Int
     let updatedAt: String
-
+    let forksCount: Int
 }
 
 extension Repository {
@@ -18,6 +18,7 @@ extension Repository {
         stargazersCount = try values.decode(Int.self, forKey: .stargazersCount)
         watchersCount = try values.decode(Int.self, forKey: .watchersCount)
         updatedAt = try values.decode(String.self, forKey: .updatedAt)
+        forksCount = try values.decode(Int.self, forKey: .forksCount)
     }
 
      private enum CodingKeys: String, CodingKey {
@@ -27,6 +28,7 @@ extension Repository {
         case stargazersCount = "stargazers_count"
         case watchersCount = "watchers_count"
         case updatedAt = "updated_at"
+        case forksCount = "forks_count"
     }
 
 }
