@@ -16,7 +16,7 @@ O app deve mostrar os principais repositórios e criar um filtro por estrelas, s
 -- foto ou gif
 
 ## Tela de Filtros 🔖
--- foto ou gif
+![tela de filtro](telafiltro.png)
 
 ## Tela de Detalhes 🔍
 -- foto ou gif
