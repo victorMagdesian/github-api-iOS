@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E9F094F2763C9B9005564EE /* ExtensionFiltroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9F094E2763C9B9005564EE /* ExtensionFiltroViewController.swift */; };
+		4E9F09512763CC17005564EE /* ExtensionHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9F09502763CC17005564EE /* ExtensionHomeViewController.swift */; };
 		4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C2E275AB7DE00016E16 /* AppDelegate.swift */; };
 		4EFF7C31275AB7DE00016E16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF7C30275AB7DE00016E16 /* SceneDelegate.swift */; };
 		4EFF7C38275AB7DF00016E16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFF7C37275AB7DF00016E16 /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E9F094E2763C9B9005564EE /* ExtensionFiltroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFiltroViewController.swift; sourceTree = "<group>"; };
+		4E9F09502763CC17005564EE /* ExtensionHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHomeViewController.swift; sourceTree = "<group>"; };
 		4EFF7C2B275AB7DE00016E16 /* github-api-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "github-api-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFF7C2E275AB7DE00016E16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EFF7C30275AB7DE00016E16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				8C4D9B13275ED9BE00A2E3D3 /* FiltroViewController.swift */,
 				8C4D9B17275EDA4A00A2E3D3 /* DetalheViewController.swift */,
 				8C56FDA4276138DC004598BA /* HomeViewController.swift */,
+				4E9F094E2763C9B9005564EE /* ExtensionFiltroViewController.swift */,
+				4E9F09502763CC17005564EE /* ExtensionHomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			files = (
 				81102E1A2763B14700BA65F2 /* RepositoryViewModel.swift in Sources */,
 				8C4D9B15275ED9BE00A2E3D3 /* FiltroViewController.swift in Sources */,
+				4E9F09512763CC17005564EE /* ExtensionHomeViewController.swift in Sources */,
 				8E9A60D527614BDC004126BB /* Release.swift in Sources */,
 				4EFF7C2F275AB7DE00016E16 /* AppDelegate.swift in Sources */,
 				8E9A60D827614BDC004126BB /* Commit.swift in Sources */,
@@ -329,6 +336,7 @@
 				8E9A60DA27614BDC004126BB /* Branch.swift in Sources */,
 				8E9A60D627614BDC004126BB /* Repository.swift in Sources */,
 				81102E182763985100BA65F2 /* RepositoryHome.swift in Sources */,
+				4E9F094F2763C9B9005564EE /* ExtensionFiltroViewController.swift in Sources */,
 				8122B608275EA7F2007F6603 /* AppCoordinator.swift in Sources */,
 				8E9A60D927614BDC004126BB /* Contributor.swift in Sources */,
 				8C56FDA6276138DC004598BA /* HomeViewController.swift in Sources */,
