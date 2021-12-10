@@ -39,9 +39,6 @@ class FiltroViewController: UIViewController {
             setUpButton(button)
             selectButtonIfOptionSelected(button)
         }
-        if selectedButtons.count == 0 {
-            setButtonSelected(descendingFilter)
-        }
     }
 
     @IBAction func goToHome(_ sender: Any) {
@@ -54,18 +51,11 @@ class FiltroViewController: UIViewController {
         }
 
         selectedButtons.forEach {
-            if $0.titleLabel?.text == "DECRESCENTE" {
-                $0.backgroundColor = .black
-                $0.setTitleColor(.white, for: .selected)
-                $0.isSelected = true
-                selectedButtons.append($0)
-            } else {
-                $0.backgroundColor = .none
-                $0.setImage(nil, for: .normal)
-                $0.setTitleColor(.black, for: .selected)
-                $0.isSelected = false
-                selectedButtons.remove(at: selectedButtons.firstIndex(of: $0)!)
-            }
+            $0.backgroundColor = .none
+            $0.setImage(nil, for: .normal)
+            $0.setTitleColor(.black, for: .selected)
+            $0.isSelected = false
+            selectedButtons.remove(at: selectedButtons.firstIndex(of: $0)!)
 
         }
 
@@ -88,33 +78,11 @@ class FiltroViewController: UIViewController {
             setButtonUnSelected(existingDescendingButton!)
         }
 
-        if sender.titleLabel?.text != "DECRESCENTE" && sender.titleLabel?.text != "CRESCENTE" {
-            if sender.isSelected {
-                setButtonUnSelected(sender)
-            } else {
-                setButtonSelected(sender)
-            }
+        if sender.isSelected {
+            setButtonUnSelected(sender)
         } else {
-            switch sender.titleLabel?.text {
-            case "DECRESCENTE":
-                if sender.isSelected && (existingAscendingButton != nil) {
-                    setButtonUnSelected(sender)
-                } else {
-                    setButtonSelected(sender)
-                }
-            case "CRESCENTE":
-                if sender.isSelected && (existingDescendingButton != nil) {
-                    setButtonUnSelected(sender)
-                } else {
-                    setButtonSelected(sender)
-                }
-            case .none:
-                return
-            case .some:
-                return
-            }
+            setButtonSelected(sender)
         }
-
     }
 
     @IBAction func applyButton(_ sender: UIButton) {
