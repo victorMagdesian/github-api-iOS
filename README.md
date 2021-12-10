@@ -1,4 +1,5 @@
-![logo Banco Modal Mais](logomodalmais.png)
+
+<align="center">![logo Banco Modal Mais](logomodalmais.png)</>
 
 <h1 align="center">Desafio iOS Modal 🍎</h1>
 
@@ -22,18 +23,11 @@ O app deve mostrar os principais repositórios e criar um filtro por estrelas, s
 
 ## Autores
 
-👨‍🚀 [Aryel Santos](https://github.com/aryelsander)   
-👨‍🚀 [Victor Magdesian](https://github.com/victormagdesian)   
-👨‍🚀 [Victor Moura](https://github.com/vitutiv)   
-👨‍🚀 [Gabriel Matheus](https://github.com/gabrielrom)   
-👨‍🚀 [Pedro Castro](https://github.com/pedrogaldiano)
+👨‍🚀 [Aryel Santos](https://github.com/aryelsander)     👨‍🚀 [Victor Magdesian](https://github.com/victormagdesian)     👨‍🚀 [Victor Moura](https://github.com/vitutiv)     👨‍🚀 [Gabriel Matheus](https://github.com/gabrielrom)     👨‍🚀 [Pedro Castro](https://github.com/pedrogaldiano)![Logo Vaivoa](logovaivoa.png)
 
-![Logo Vaivoa](logovaivoa.png)
 
 
 ## Requisitos
-
-Swift Guidelines: https://swift.org/documentation/api-design-guidelines/
 
 - Higher Order Functions;
 - Autolayout;
