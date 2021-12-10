@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var searchButton: UIButton!
     @IBOutlet var filterTextField: UITextField!
@@ -15,13 +15,17 @@ class HomeViewController: UIViewController {
     @IBOutlet var filterCountLabel: UILabel!
     @IBOutlet var filtrosHomeStackView: UIStackView!
 
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var repositoriesStackView: UIStackView!
 
     var coordinator: DashboardCoordinator?
     var selectedFilters = [UIView]()
+    var moreData = false
+    var reloadData = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         activityIndicatorView.isHidden = true
 
         if let buttonFilters = coordinator?.filters {
@@ -73,6 +77,48 @@ class HomeViewController: UIViewController {
         filtrosHomeStackView.subviews.forEach {$0.removeFromSuperview()}
         filterCountLabel.text = "0"
     }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+
+//        print("offsetY: \(offsetY) || contentHeight: \(contentHeight)")
+
+        if offsetY > contentHeight - scrollView.frame.height {
+            if !moreData {
+                getMoreRepositories()
+            }
+        } else if offsetY < 0 {
+            if !reloadData {
+                refreshData()
+            }
+        }
+    }
+
+    func refreshData() {
+        reloadData = true
+        print("Reload dos dados")
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+//            repositories = carregarDados()  Fazer uma nova requisição da API considerando os filtros da home
+            print("atualizadoo\n")
+            self.reloadData = false
+
+        })
+    }
+
+    func getMoreRepositories() {
+        moreData = true
+        print("Pegando mais dado..")
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+//          let newRepositories = Requisição pro git pegando os próximos n repositórios
+//            self.repositories.append(newRepositories)
+            print("++ dados\n")
+            self.moreData = false
+//            self.repositoriesStackView.reloadInputViews() // ele usou um self.tableView.reloadData()
+        })
+    }
 }
 
 extension HomeViewController: UITextFieldDelegate {
@@ -93,6 +139,7 @@ extension HomeViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         activityIndicatorView.isHidden = true
     }
+
 }
 
 extension HomeViewController {
