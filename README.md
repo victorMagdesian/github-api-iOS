@@ -13,22 +13,23 @@ O app deve mostrar os principais repositórios e criar um filtro por estrelas, s
 -   Puxe para atualizar a lista de pedidos.
 
 ## Tela Inicial 🏠
--- Comentário
+-- foto ou gif
 
 ## Tela de Filtros 🔖
--- Comentário
+-- foto ou gif
 
 ## Tela de Detalhes 🔍
--- Comentário
+-- foto ou gif
 
-## Autores
+## Autores 🚀
 
 👨‍🚀 [Aryel Santos](https://github.com/aryelsander)     👨‍🚀 [Victor Magdesian](https://github.com/victormagdesian)     👨‍🚀 [Victor Moura](https://github.com/vitutiv)     👨‍🚀 [Gabriel Matheus](https://github.com/gabrielrom)     👨‍🚀 [Pedro Castro](https://github.com/pedrogaldiano)
+
 ![Logo Vaivoa](logovaivoa.png)
 
 
 
-## Requisitos
+## Requisitos 🧾
 
 - Higher Order Functions;
 - Autolayout;
@@ -41,17 +42,17 @@ O app deve mostrar os principais repositórios e criar um filtro por estrelas, s
 - SPM;
 - RxSwift – Única framework a ser adicionada no projeto;
 
-## Plus
+## Plus ➕
 
 - Unit/UI Tests XCTests;
 - Componentes customizados;
 - Fonte customizadas;
 - l10n;
 
-## PlusPlus
+## PlusPlus ➕➕
 
 - Faça tudo usando SwiftUI com Combine.
 
-## Entrega e Prazo
+## Entrega e Prazo 📅
 
 Você tem uma semana para terminar o teste e enviar o link do teste publicado no Github.
