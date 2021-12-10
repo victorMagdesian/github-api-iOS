@@ -1,16 +1,34 @@
-# Github Teste
+[logo Banco Modal Mais](logomodal.png)
 
-## Github API
-https://developer.github.com/v3
+<h1 align="center">Desafio iOS Modal 🍎</h1>
 
-## Descrição
+  > O nosso objetivo foi construir uma aplicação iOS usando Swift para consumir a API do GitHub seguindo o escopo do desafio do Banco Modal.
 
-Você precisa listar os principais repositórios e criar um filtro por estrelas, seguidores, data do ultimo commit.
+## Escopo do Projeto 🖥️
+O app deve mostrar os principais repositórios e criar um filtro por estrelas, seguidores e data do ultimo commit.
 
-- Mostrar ícone e informações básicas do repo.
-- Paginação com rolagem infinita.
-- Puxe para atualizar a lista de pedidos.
-- Segue anexo arquivo Github Teste.fig com o layout a ser seguido, importar o layout no app figma: https://www.figma.com/downloads/
+-   Mostrar ícone e informações básicas do repo.
+-   Paginação com rolagem infinita.
+-   Puxe para atualizar a lista de pedidos.
+
+## Tela Inicial 🏠
+-- Comentário
+
+## Tela de Filtros 🔖
+-- Comentário
+
+## Tela de Detalhes 🔍
+-- Comentário
+
+## Autores
+
+  👨‍🚀 [Aryel Santos](https://github.com/aryelsander)
+👨‍🚀 [Victor Magdesian](https://github.com/victormagdesian)
+👨‍🚀 [Victor Moura](https://github.com/vitutiv)
+👨‍🚀 [Gabriel Matheus](https://github.com/gabrielrom)
+👨‍🚀 [Pedro Castro](https://github.com/pedrogaldiano)
+
+[Logo Vaivoa](logovaivoa.pnj)
 
 ## Requisitos
 
