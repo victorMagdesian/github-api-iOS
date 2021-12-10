@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -36,8 +36,8 @@
                                 <constraint firstAttribute="height" constant="33" id="TtU-mG-dwx"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REPOSITÓRIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itM-No-zDw">
-                            <rect key="frame" x="68" y="53" width="84" height="15"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="REPOSITÓRIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itM-No-zDw">
+                            <rect key="frame" x="68" y="53" width="139" height="15"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -66,6 +66,7 @@
                         <constraint firstItem="4Au-5v-iI6" firstAttribute="top" secondItem="5Ob-vo-qu4" secondAttribute="top" constant="44" id="hm2-aq-bbH"/>
                         <constraint firstItem="Hf9-e2-lgS" firstAttribute="top" secondItem="W8a-eU-6TI" secondAttribute="bottom" constant="4" id="lJ7-wF-kpo"/>
                         <constraint firstItem="itM-No-zDw" firstAttribute="centerY" secondItem="4Au-5v-iI6" secondAttribute="centerY" id="m95-2s-dYt"/>
+                        <constraint firstItem="W8a-eU-6TI" firstAttribute="leading" secondItem="itM-No-zDw" secondAttribute="trailing" id="ydJ-wn-Pf3"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIr-kj-jEL" userLabel="RepoBottomView">
