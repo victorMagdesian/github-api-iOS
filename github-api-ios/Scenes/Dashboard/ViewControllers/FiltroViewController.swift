@@ -40,6 +40,9 @@ class FiltroViewController: UIViewController {
             setUpButton(button)
             selectButtonIfOptionSelected(button)
         }
+        if selectedButtons.count == 0 {
+            setButtonSelected(descendingFilter)
+        }
     }
 
     @IBAction func goToHome(_ sender: Any) {
