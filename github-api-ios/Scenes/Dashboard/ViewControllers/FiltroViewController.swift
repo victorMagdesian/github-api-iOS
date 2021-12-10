@@ -22,7 +22,6 @@ class FiltroViewController: UIViewController {
     var selectedButtons: [UIButton] = []
 
     override func viewDidLoad() {
-        print("Entrou aqui dnv no filtro")
 
         super.viewDidLoad()
 
@@ -55,13 +54,21 @@ class FiltroViewController: UIViewController {
         }
 
         selectedButtons.forEach {
-            $0.backgroundColor = .none
-            $0.setImage(nil, for: .normal)
-            $0.setTitleColor(.black, for: .selected)
-            $0.isSelected = false
+            if $0.titleLabel?.text == "DECRESCENTE" {
+                $0.backgroundColor = .black
+                $0.setTitleColor(.white, for: .selected)
+                $0.isSelected = true
+                selectedButtons.append($0)
+            } else {
+                $0.backgroundColor = .none
+                $0.setImage(nil, for: .normal)
+                $0.setTitleColor(.black, for: .selected)
+                $0.isSelected = false
+                selectedButtons.remove(at: selectedButtons.firstIndex(of: $0)!)
+            }
+
         }
 
-        selectedButtons.removeAll()
     }
 
     @objc func tappedButton(_ sender: UIButton) {
