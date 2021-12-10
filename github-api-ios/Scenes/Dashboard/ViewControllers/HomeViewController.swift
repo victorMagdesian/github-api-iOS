@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet var filterCountLabel: UILabel!
     @IBOutlet var filtrosHomeStackView: UIStackView!
 
+    @IBOutlet var repositoriesStackView: UIStackView!
+
     var coordinator: DashboardCoordinator?
     var selectedFilters = [UIView]()
 
@@ -34,7 +36,27 @@ class HomeViewController: UIViewController {
         }
 
         filterTextField.delegate = self
-        filterTextField.becomeFirstResponder()
+
+        for values in (1..<10) {
+
+            let repositoryView = RepositorioCustomView()
+
+            repositoryView.imageIcon.image = UIImage(named: "baixo_risco")
+
+            if values.isMultiple(of: 2) {
+                invertBackgroundRepository(repositoryView)
+            }
+
+            repositoryView.translatesAutoresizingMaskIntoConstraints = false
+
+            repositoriesStackView.addArrangedSubview(repositoryView)
+
+            NSLayoutConstraint.activate([
+                repositoryView.heightAnchor.constraint(equalToConstant: 155),
+                repositoryView.widthAnchor.constraint(equalTo: repositoriesStackView.widthAnchor)
+            ])
+
+        }
 
     }
 
@@ -47,8 +69,9 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func clearFilters(_ sender: Any) {
-        coordinator?.filters = []
+        coordinator?.filters.removeAll()
         filtrosHomeStackView.subviews.forEach {$0.removeFromSuperview()}
+        filterCountLabel.text = "0"
     }
 }
 
@@ -92,5 +115,21 @@ extension HomeViewController {
         } completion: { _ in
             sender.removeFromSuperview()
         }
+    }
+
+    private func invertBackgroundRepository(_ repositoryView: RepositorioCustomView) {
+        repositoryView.topView.backgroundColor = .white
+
+        repositoryView.bottomView.backgroundColor = UIColor(
+            red: CGFloat(126)/CGFloat(255),
+            green: CGFloat(126)/CGFloat(255),
+            blue: CGFloat(126)/CGFloat(255),
+            alpha: 1
+        )
+
+        repositoryView.totalStarsLabel.textColor = .black
+        repositoryView.repositoryName.textColor = .black
+        repositoryView.stargazingCount.textColor = .black
+
     }
 }
