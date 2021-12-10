@@ -28,8 +28,15 @@ class DetalheViewController: UIViewController {
         }
 
     @IBAction func voltarButtonTapped(_ sender: Any) {
+        self.coordinator?.start()
     }
 
     @IBAction func compartilharButtonTapped(_ sender: Any) {
+        let ownerName = "NOME-DO-USUARIO"
+        let urlRepo = "https://github.com/\(ownerName)/\(repoName!)"
+
+        let activityVC = UIActivityViewController(activityItems: [urlRepo], applicationActivities: [])
+        activityVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(activityVC, animated: true)
     }
 }

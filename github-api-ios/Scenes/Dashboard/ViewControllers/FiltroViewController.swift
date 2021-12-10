@@ -43,7 +43,6 @@ class FiltroViewController: UIViewController {
     }
 
     @IBAction func goToHome(_ sender: Any) {
-        print("Indo pro main..")
         self.coordinator?.start()
     }
 
