@@ -12,8 +12,8 @@ class GithubRepository {
     private let networkService = NetworkService()
     private let baseURLString = "https://api.github.com"
 
-    func getRepositories (_ order: Repositories.OrderBy = .descending) -> Observable<Repositories> {
-        return networkService.execute(url: URL(string: baseURLString + "/search/repositories" + order.rawValue)!)
+    func getRepositories(_ order: Repositories.OrderBy = .descending, page: Int = 1) -> Observable<Repositories> {
+        return networkService.execute(url: URL(string: baseURLString + "/search/repositories?q=github-api-iOS&sort=stars&order=desc&per_page=100&pages=\(page)")!)
     }
 
     func getBranches(ownerName: String, repositoryName: String) -> Observable<[Branch]> {
