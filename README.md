@@ -1,4 +1,4 @@
-[logo Banco Modal Mais](logomodalmais.png)
+![logo Banco Modal Mais](logomodalmais.png)
 
 <h1 align="center">Desafio iOS Modal 🍎</h1>
 
@@ -28,7 +28,7 @@ O app deve mostrar os principais repositórios e criar um filtro por estrelas, s
 👨‍🚀 [Gabriel Matheus](https://github.com/gabrielrom)
 👨‍🚀 [Pedro Castro](https://github.com/pedrogaldiano)
 
-[Logo Vaivoa](logovaivoa.png)
+![Logo Vaivoa](logovaivoa.png)
 
 ## Requisitos
 
