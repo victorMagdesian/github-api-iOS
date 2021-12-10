@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
 
         if let buttonFilters = coordinator?.filters {
             filterCountLabel.text = String(buttonFilters.count)
-
+            print("AAEIOU\(buttonFilters)")
             buttonFilters.forEach {
                 $0.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
 
@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
     @IBAction func clearFilters(_ sender: Any) {
         coordinator?.filters = []
         filtrosHomeStackView.subviews.forEach {$0.removeFromSuperview()}
+        filterCountLabel.text = "0"
     }
 }
 
