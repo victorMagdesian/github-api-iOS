@@ -12,14 +12,9 @@ O app deve mostrar os principais repositórios e criar um filtro por estrelas, s
 -   Paginação com rolagem infinita.
 -   Puxe para atualizar a lista de pedidos.
 
-## Tela Inicial 🏠
--- foto ou gif
+## Telas  🏠🔖🔍
+![telas](telas.png)
 
-## Tela de Filtros 🔖
-![tela de filtro](telafiltro.png)
-
-## Tela de Detalhes 🔍
--- foto ou gif
 
 ## Autores 🚀
 
