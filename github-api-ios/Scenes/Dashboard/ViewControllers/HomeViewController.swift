@@ -84,7 +84,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         if let buttonFilters = coordinator?.filters {
             filterCountLabel.text = String(buttonFilters.count)
-            print("AAEIOU\(buttonFilters)")
             buttonFilters.forEach {
                 $0.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
 
@@ -120,8 +119,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
 
-//        print("offsetY: \(offsetY) || contentHeight: \(contentHeight)")
-
         if offsetY > contentHeight - scrollView.frame.height {
             if !moreData {
                 getMoreRepositories()
@@ -135,11 +132,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     func refreshData() {
         reloadData = true
-        print("Reload dos dados")
-
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//            repositories = carregarDados()  Fazer uma nova requisição da API considerando os filtros da home
-            print("atualizadoo\n")
             self.reloadData = false
 
         })
@@ -147,17 +140,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     func getMoreRepositories() {
         moreData = true
-        print("Pegando mais dado..")
-
         paginationCount += 1
-
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//         let newRepositories = Requisição pro git pegando os próximos n repositórios
-//            self.repositories.append(newRepositories)
-//            print("++ dados\n")
-//            self.moreData = false
-//           self.repositoriesStackView.reloadInputViews() // ele usou um self.tableView.reloadData()
-//        })
         var repositoriesCount = 0
 
         githubRepository.getRepositories(page: paginationCount)
