@@ -111,14 +111,11 @@
                             <color key="textColor" red="0.67450982329999998" green="0.68627452850000004" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="xIC-uh-G7I">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="xIC-uh-G7I">
                             <rect key="frame" x="16" y="76" width="396" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3X-rn-prD">
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="78P-Yf-QTD"/>
-                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -148,9 +145,11 @@
                                 </button>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="height" constant="40" id="5gJ-ei-Tjg"/>
                                 <constraint firstItem="Dd2-so-ov7" firstAttribute="leading" secondItem="5R9-Er-dkv" secondAttribute="trailing" constant="18" id="M8Y-pj-MjD"/>
                                 <constraint firstItem="5R9-Er-dkv" firstAttribute="height" secondItem="f3X-rn-prD" secondAttribute="height" id="T9r-VD-Ged"/>
                                 <constraint firstItem="Dd2-so-ov7" firstAttribute="height" secondItem="f3X-rn-prD" secondAttribute="height" id="neJ-eT-Rya"/>
+                                <constraint firstAttribute="height" secondItem="f3X-rn-prD" secondAttribute="height" id="qXG-V6-Crm"/>
                                 <constraint firstItem="5R9-Er-dkv" firstAttribute="leading" secondItem="f3X-rn-prD" secondAttribute="trailing" constant="18" id="ru5-6P-sNC"/>
                             </constraints>
                         </stackView>
