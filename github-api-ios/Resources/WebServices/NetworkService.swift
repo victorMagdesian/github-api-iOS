@@ -36,6 +36,7 @@ class NetworkService {
             }
         }
     }
+
     func execute(url: URL) -> Observable<String> {
         return Observable.create { observer -> Disposable in
             var urlRequest = URLRequest(url: url)
