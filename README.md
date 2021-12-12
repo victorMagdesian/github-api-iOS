@@ -6,11 +6,16 @@
   > O nosso objetivo foi construir uma aplicação iOS usando Swift para consumir a API do GitHub seguindo o escopo do desafio do Banco Modal.
 
 ## Escopo do Projeto 🖥️
-O app deve mostrar os principais repositórios e criar um filtro por estrelas, seguidores e data do ultimo commit.
-
--   Mostrar ícone e informações básicas do repo.
--   Paginação com rolagem infinita.
--   Puxe para atualizar a lista de pedidos.
+-   View da Home 🆗
+-   View de Filtro 🆗
+-   View de Detalhes 🆗
+-   Fazer uma busca por nome do repositório ✖️
+> justificativa 
+-   Criar um filtro por estrelas, seguidores e data do último commit ✖️
+> justificativa
+-   Mostrar ícone e informações básicas do repo 🆗
+-   Paginação com rolagem infinita 🆗
+-   Puxe para atualizar a lista de repositórios 🆗
 
 ## Telas  🏠🔖🔍
 ![telas](telas.png)
