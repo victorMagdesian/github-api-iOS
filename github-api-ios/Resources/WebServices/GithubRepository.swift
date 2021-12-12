@@ -33,10 +33,10 @@ class GithubRepository {
     }
 
     func getRepositoriesByName(
-        repositoryName: String = "abc",
-        _ sort: Repositories.FilterBy = .stars,
-        _ order: Repositories.OrderBy = .desc,
-        page: Int = 1) -> Observable<Repositories> {
+        repositoryName: String,
+        sort: Repositories.FilterBy,
+        order: Repositories.OrderBy,
+        page: Int) -> Observable<Repositories> {
 
         let url = "\(baseURLString)/search/" +
             "repositories?q=\(repositoryName)&" +
