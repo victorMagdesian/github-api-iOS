@@ -36,10 +36,11 @@ class NetworkService {
             }
         }
     }
-    func execute(url: URL) -> Observable<Data> {
+    func execute(url: URL) -> Observable<String> {
         return Observable.create { observer -> Disposable in
             var urlRequest = URLRequest(url: url)
-                        urlRequest.addValue("token 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", forHTTPHeaderField: "Authorization")
+                        urlRequest.addValue("token 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",
+                                            forHTTPHeaderField: "Authorization")
                         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
@@ -48,9 +49,8 @@ class NetworkService {
                     print(error.debugDescription)
                     return
                 }
-                print(String(describing: response))
-                print(data)
-                observer.onNext(data)
+                let str = String(decoding: data, as: UTF8.self)
+                observer.onNext(str)
                 observer.onCompleted()
             }
             task.resume()
