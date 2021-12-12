@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        githubRepository.getRepositories()
+        githubRepository.getRepositoriesByName()
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { (allRepos: Repositories) in
@@ -143,12 +143,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         })
     }
 
+    func getFirstRepositories() {
+
+    }
+
     func getMoreRepositories() {
         moreData = true
         paginationCount += 1
         var repositoriesCount = 0
 
-        githubRepository.getRepositories(page: paginationCount)
+        githubRepository.getRepositoriesByName(page: paginationCount)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { (allRepos: Repositories) in
@@ -201,4 +205,5 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                     }
                 }).disposed(by: disposeViewBag)
     }
+
 }
