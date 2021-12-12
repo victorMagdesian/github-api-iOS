@@ -44,6 +44,7 @@ class DetalheViewController: UIViewController {
         getRepositoryBranchsCount(ownerName: ownerName, repositoryName: repositoryName)
         getRepositoryReleasesCount(ownerName: ownerName, repositoryName: repositoryName)
         getRepositoryColaboratorsCount(ownerName: ownerName, repositoryName: repositoryName)
+
         readmeText.text = githubRepository.getReadme(ownerName: ownerName, repositoryName: repositoryName)
         readmeText.textColor = .black
     }
@@ -97,6 +98,15 @@ extension DetalheViewController {
                 onNext: { (contributors) in
                     self.totalColaborators.text = contributors.count == 0 ? "0" : String(contributors.count)
                 }).disposed(by: disposeViewBag)
+    }
+    private func getRepositoryReadme(ownerName: String, repositoryName: String) {
+        githubRepository.getReadme(ownerName: ownerName, repositoryName: repositoryName)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onNext: { (readme) in
+                    self.readmeText.text = readme
+                }).disposed(by: disposeViewBag)
+
     }
 
 }

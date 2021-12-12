@@ -15,7 +15,7 @@ class NetworkService {
             var urlRequest = URLRequest(url: url)
 
             urlRequest.addValue(
-                "token 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",
+                "token {TOKEN_AQUI}",
                 forHTTPHeaderField: "Authorization")
 
             urlRequest.setValue(
@@ -44,8 +44,9 @@ class NetworkService {
     func execute(url: URL) -> Observable<String> {
         return Observable.create { observer -> Disposable in
             var urlRequest = URLRequest(url: url)
+
             urlRequest.addValue(
-                "token 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",
+                "token {TOKEN_AQUI}",
                 forHTTPHeaderField: "Authorization")
 
             urlRequest.addValue(
