@@ -34,14 +34,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         githubRepository.getReadme(ownerName: "octocat", repositoryName: "Hello-World")
                     .observe(on: MainScheduler.instance)
                     .subscribe({ readme in
                         print(readme)
                     })
-        
-        
+
 //        githubRepository.getRepositoriesByName()
 //            .observe(on: MainScheduler.instance)
 //            .subscribe(
