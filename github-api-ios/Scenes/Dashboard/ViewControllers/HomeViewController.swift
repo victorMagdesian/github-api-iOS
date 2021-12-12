@@ -37,7 +37,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         githubRepository.getReadme(ownerName: "octocat", repositoryName: "Hello-World")
                     .observe(on: MainScheduler.instance)
                     .subscribe({ readme in
-                        print(readme)
+                        guard let txt = readme.element   else { return }
+                        print(txt)
                     })
 
 //        githubRepository.getRepositoriesByName()
