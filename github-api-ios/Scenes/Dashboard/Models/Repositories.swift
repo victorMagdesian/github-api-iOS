@@ -11,14 +11,14 @@ struct Repositories: Decodable {
     let repositories: [Repository]
 
     enum FilterBy: String {
-        case estrelas = "stars"
-        case seguidores = "watchers"
-        case data = "data"
+        case stars
+        case watchers
+        case data
     }
 
     enum OrderBy: String {
-        case ascending = "?q=order=asc"
-        case descending = "?q=order=desc"
+        case asc
+        case desc
 
     }
 }

@@ -12,10 +12,10 @@ class GithubRepository {
     private let networkService = NetworkService()
     private let baseURLString = "https://api.github.com"
 
-    func getRepositories(_ order: Repositories.OrderBy = .descending, page: Int = 1) -> Observable<Repositories> {
-        let urlString = "\(baseURLString)/search/repositories?q=sort=stars&order=desc&per_page=100&page=\(page)"
-        return networkService.execute(url: URL(string: urlString)!)
-    }
+//    func getRepositories(_ order: Repositories.OrderBy = .descending, page: Int = 1) -> Observable<Repositories> {
+//        let urlString = "\(baseURLString)/search/repositories?q=sort=stars&order=desc&per_page=100&page=\(page)"
+//        return networkService.execute(url: URL(string: urlString)!)
+//    }
 
     func getBranches(ownerName: String, repositoryName: String) -> Observable<[Branch]> {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/branches"
@@ -33,4 +33,21 @@ class GithubRepository {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/contributors"
         return networkService.execute(url: URL(string: urlString)!)
     }
+    func getRepositoriesByName(
+        repositoryName: String = "abc",
+        _ sort: Repositories.FilterBy = .stars,
+        _ order: Repositories.OrderBy = .desc,
+        page: Int = 1) -> Observable<Repositories> {
+
+        let url = "\(baseURLString)/search/" +
+            "repositories?q=\(repositoryName)&" +
+            "sort=\(sort)&" +
+            "order=\(order)&" +
+            "per_page=10&page=\(page)"
+
+        return networkService.execute(url: URL(string: url)!)
+    }
 }
+
+// abc - 435
+// bitcoin-abc - 1052
