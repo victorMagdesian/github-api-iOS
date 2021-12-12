@@ -48,13 +48,35 @@ class GithubRepository {
         if order != .defaultFilter {
             url += "&order=\(order)"
         }
-            
+
         return networkService.execute(url: URL(string: url + "&per_page=10&page=\(page)")!)
     }
 
-    func getReadme(ownerName: String, repositoryName: String) -> Observable<String> {
-        let urlString = "https://raw.githubusercontent.com/\(ownerName)/\(repositoryName)/main/README"
 
-        return networkService.execute(url: URL(string: urlString)!)
+    func getReadme(ownerName: String, repositoryName: String) -> String {
+        let urlRequest = URLRequest(url: URL(
+            string: "https://raw.githubusercontent.com/\(ownerName)/\(repositoryName)/master/README.md"
+        )!)
+        let sem = DispatchSemaphore.init(value: 0)
+
+        var result = ""
+
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            defer { sem.signal() }
+            guard let data = data else {
+                print("Response: \(String(describing: response)) \n\n\n")
+                print("\n\n\nError")
+                print(error.debugDescription)
+
+                return
+            }
+
+            result = String(decoding: data, as: UTF8.self)
+        }
+
+        task.resume()
+        sem.wait()
+
+        return result
     }
 }
