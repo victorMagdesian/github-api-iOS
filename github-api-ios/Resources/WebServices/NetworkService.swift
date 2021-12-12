@@ -15,13 +15,13 @@ class NetworkService {
             var urlRequest = URLRequest(url: url)
 
             urlRequest.addValue(
-                "token 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",
+                "token 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",
                 forHTTPHeaderField: "Authorization")
 
             urlRequest.setValue(
                 "application/json",
                 forHTTPHeaderField: "Content-Type")
-            
+
             let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 guard let data = data, let decoded = try? JSONDecoder().decode(T.self, from: data) else {
                     print("Response: \(String(describing: response)) \n\n\n")
@@ -45,14 +45,14 @@ class NetworkService {
         return Observable.create { observer -> Disposable in
             var urlRequest = URLRequest(url: url)
             urlRequest.addValue(
-                "token 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",
+                "token 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",
                 forHTTPHeaderField: "Authorization")
-            
+
             urlRequest.addValue(
                 "application/json",
                 forHTTPHeaderField: "Content-Type"
             )
-            
+
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
                     print("Response: \(String(describing: response)) \n\n\n")

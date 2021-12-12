@@ -44,6 +44,8 @@ class DetalheViewController: UIViewController {
         getRepositoryBranchsCount(ownerName: ownerName, repositoryName: repositoryName)
         getRepositoryReleasesCount(ownerName: ownerName, repositoryName: repositoryName)
         getRepositoryColaboratorsCount(ownerName: ownerName, repositoryName: repositoryName)
+        readmeText.text = githubRepository.getReadme(ownerName: ownerName, repositoryName: repositoryName)
+        readmeText.textColor = .black
     }
 
     @IBAction func voltarButtonTapped(_ sender: Any) {
