@@ -13,10 +13,10 @@ class NetworkService {
     func execute<T: Decodable>(url: URL) -> Observable<T> {
         return Observable.create { observer -> Disposable in
             var urlRequest = URLRequest(url: url)
-            
+
                         urlRequest.addValue("token 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",
                                             forHTTPHeaderField: "Authorization")
-            
+
                         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, let decoded = try? JSONDecoder().decode(T.self, from: data) else {

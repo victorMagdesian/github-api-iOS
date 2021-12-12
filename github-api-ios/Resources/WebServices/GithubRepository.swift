@@ -16,22 +16,22 @@ class GithubRepository {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/branches"
         return networkService.execute(url: URL(string: urlString)!)
     }
-    
+
     func getCommits(ownerName: String, repositoryName: String) -> Observable<[Commit]> {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/commits"
         return networkService.execute(url: URL(string: urlString)!)
     }
-    
+
     func getContributors(ownerName: String, repositoryName: String) -> Observable<[Contributor]> {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/contributors"
         return networkService.execute(url: URL(string: urlString)!)
     }
-    
+
     func getReleases(ownerName: String, repositoryName: String) -> Observable<[Release]> {
         let urlString = baseURLString + "/repos/\(ownerName)/\(repositoryName)/contributors"
         return networkService.execute(url: URL(string: urlString)!)
     }
-    
+
     func getRepositoriesByName(
         repositoryName: String = "abc",
         _ sort: Repositories.FilterBy = .stars,
@@ -47,7 +47,7 @@ class GithubRepository {
         return networkService.execute(url: URL(string: url)!)
     }
     func getReadme(ownerName: String, repositoryName: String) -> Observable<Data> {
-        let urlString = "https://raw.githubusercontent.com/\(ownerName))/\(repositoryName))/master/README"
+        let urlString = "https://raw.githubusercontent.com/\(ownerName)/\(repositoryName)/master/README"
 
         return networkService.execute(url: URL(string: urlString)!)
       }
