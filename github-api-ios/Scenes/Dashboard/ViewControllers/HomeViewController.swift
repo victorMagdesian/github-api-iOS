@@ -61,7 +61,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
                         repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
                         repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
 
-                        repositoryView.lastCommitDataInDays.text = self.repositories[values].getLastUpdatedDay() == 0 ? "Today" : String(self.repositories[values].getLastUpdatedDay())
+                        if self.repositories[values].getLastUpdatedDay() == 0 {
+                            repositoryView.lastCommitDataInDays.text = "Today"
+                        } else {
+                            repositoryView.lastCommitDataInDays.text = String(
+                                self.repositories[values].getLastUpdatedDay())
+                        }
 
                         repositoryView.ownerName = self.repositories[values].ownerName
 
