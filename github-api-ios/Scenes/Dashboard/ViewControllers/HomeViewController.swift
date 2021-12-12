@@ -181,3 +181,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         activityIndicatorView.isHidden = true
     }
 }
+
+//
+// UIButton:0x15c52ed20'ESTRELAS'.height == 40   (active)>",
+// UIStackView:0x15c547240.height == 36   (active)>",
+
+// 'UISV-alignment' UIButton:0x15c533e50'CRESCENTE'.bottom == UIButton:0x15c52ed20'ESTRELAS'.bottom   (active)>",
+
+// 'UISV-alignment' UIButton:0x15c533e50'CRESCENTE'.top == UIButton:0x15c52ed20'ESTRELAS'.top   (active)>",
+
+// 'UISV-canvas-connection' UIStackView:0x15c547240.top == UIButton:0x15c533e50'CRESCENTE'.top   (active)>",
+
+// 'UISV-canvas-connection' V:[UIButton:0x15c533e50'CRESCENTE']-(0)-|   (active, names: '|':UIStackView:0x15c547240 )>"
+// )

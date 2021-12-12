@@ -53,7 +53,7 @@ class GithubRepository {
     }
 
     func getReadme(ownerName: String, repositoryName: String) -> Observable<String> {
-        let urlString = "https://raw.githubusercontent.com/\(ownerName)/\(repositoryName)/master/README"
+        let urlString = "https://raw.githubusercontent.com/\(ownerName)/\(repositoryName)/main/README"
 
         return networkService.execute(url: URL(string: urlString)!)
     }

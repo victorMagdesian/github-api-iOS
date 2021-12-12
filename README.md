@@ -9,13 +9,14 @@
 -   View da Home 🆗
 -   View de Filtro 🆗
 -   View de Detalhes 🆗
--   Fazer uma busca por nome do repositório ✖️
-> justificativa 
--   Criar um filtro por estrelas, seguidores e data do último commit ✖️
-> justificativa
+-   Fazer uma busca por nome do repositório 🆗  
+-   Criar um filtro por estrelas, seguidores e data do último commit❗
+> O filtro por estrela funciona corretamente. Entretanto, não encontramos um endpoint que retorna os dados ordenados por seguidores ou pela data do último commit, então optamos por receber um array e ordernar conforme a necessidade.
 -   Mostrar ícone e informações básicas do repo 🆗
 -   Paginação com rolagem infinita 🆗
 -   Puxe para atualizar a lista de repositórios 🆗
+-  Autenticação da API do GitHub❗
+> Utilizamos um Personal Acess Token para aumentarmos o limite de requisições para a API do GitHub. O ideal seria utilizar o GitHub Apps, mas não tivemos tempo de estudá-la e implementá-la.
 
 ## Telas  🏠🔖🔍
 ![telas](telas.png)
