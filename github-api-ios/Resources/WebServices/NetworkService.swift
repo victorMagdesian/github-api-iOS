@@ -14,10 +14,14 @@ class NetworkService {
         return Observable.create { observer -> Disposable in
             var urlRequest = URLRequest(url: url)
 
-                        urlRequest.addValue("token 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",
-                                            forHTTPHeaderField: "Authorization")
+            urlRequest.addValue(
+                "token {TOKEN_AQUI}",
+                forHTTPHeaderField: "Authorization")
 
-                        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue(
+                "application/json",
+                forHTTPHeaderField: "Content-Type")
+            
             let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 guard let data = data, let decoded = try? JSONDecoder().decode(T.self, from: data) else {
                     print("Response: \(String(describing: response)) \n\n\n")
@@ -40,9 +44,16 @@ class NetworkService {
     func execute(url: URL) -> Observable<String> {
         return Observable.create { observer -> Disposable in
             var urlRequest = URLRequest(url: url)
-                        urlRequest.addValue("token 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",
-                                            forHTTPHeaderField: "Authorization")
-                        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            urlRequest.addValue(
+                "token {TOKEN_AQUI}",
+                forHTTPHeaderField: "Authorization")
+            
+            urlRequest.addValue(
+                "application/json",
+                forHTTPHeaderField: "Content-Type"
+            )
+            
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
                     print("Response: \(String(describing: response)) \n\n\n")

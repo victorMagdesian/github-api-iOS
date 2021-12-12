@@ -38,17 +38,23 @@ class GithubRepository {
         order: Repositories.OrderBy,
         page: Int) -> Observable<Repositories> {
 
-        let url = "\(baseURLString)/search/" +
-            "repositories?q=\(repositoryName)&" +
-            "sort=\(sort)&" +
-            "order=\(order)&" +
-            "per_page=10&page=\(page)"
+        var url = "\(baseURLString)/search/" +
+            "repositories?q=\(repositoryName)"
 
-        return networkService.execute(url: URL(string: url)!)
+        if sort != .defaultFilter {
+            url += "&sort=\(sort)"
+        }
+
+        if order != .defaultFilter {
+            url += "&order=\(order)"
+        }
+            
+        return networkService.execute(url: URL(string: url + "&per_page=10&page=\(page)")!)
     }
+
     func getReadme(ownerName: String, repositoryName: String) -> Observable<String> {
         let urlString = "https://raw.githubusercontent.com/\(ownerName)/\(repositoryName)/main/README"
 
         return networkService.execute(url: URL(string: urlString)!)
-      }
+    }
 }

@@ -136,6 +136,7 @@ extension HomeViewController {
                 repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
                 repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
                 repositoryView.lastCommitDataInDays.text = String(self.repositories[values].getLastUpdatedDay())
+                repositoryView.ownerName = self.repositories[values].ownerName
 
                 if values.isMultiple(of: 2) {
                     self.invertBackgroundRepository(repositoryView)
