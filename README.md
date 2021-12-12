@@ -16,7 +16,7 @@
 -   Paginação com rolagem infinita 🆗
 -   Puxe para atualizar a lista de repositórios 🆗
 -  Autenticação da API do GitHub❗
-> Utilizamos um token
+> Utilizamos um Personal Acess Token para aumentarmos o limite de requisições para a API do GitHub. O ideal seria utilizar o GitHub Apps, mas não tivemos tempo de estudá-la e implementá-la.
 
 ## Telas  🏠🔖🔍
 ![telas](telas.png)
