@@ -28,6 +28,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     let disposeViewBag = DisposeBag()
 
     var repositories = [RepositoryHome]()
+    var repoName: String = "abc"
+    var repositoriesCount = 0
 
     var paginationCount = 1
 
@@ -41,7 +43,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 //                        print(txt)
 //                    })
 
-        initializeReposInHome()
+        initializeReposInHome(repoName: repoName)
 
         if let buttonFilters = coordinator?.filters {
             filterCountLabel.text = String(buttonFilters.count)
@@ -82,7 +84,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         if offsetY > contentHeight - scrollView.frame.height {
             if !moreData {
-                getMoreRepositories()
+                getMoreRepositories(repoName: repoName)
             }
         } else if offsetY < 0 {
             if !reloadData {
@@ -99,77 +101,39 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         })
     }
 
-    func getFirstRepositories() {
+    @IBAction func searchByName(_ sender: UITextField) {
+        self.repositories.removeAll()
+
+        for view in repositoriesStackView.arrangedSubviews {
+            view.removeFromSuperview()
+        }
+        repoName = sender.text!
+        initializeReposInHome(repoName: repoName)
 
     }
 
     func getMoreRepositories(
-        repoName: String = "abc",
+        repoName: String,
         _ sort: Repositories.FilterBy = .stars,
         _ order: Repositories.OrderBy = .desc,
         page: Int = 1) {
 
         moreData = true
         paginationCount += 1
-        var repositoriesCount = 0
 
         githubRepository.getRepositoriesByName(
             repositoryName: repoName, sort: sort, order: order, page: paginationCount)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { (allRepos: Repositories) in
-                    repositoriesCount = allRepos.repositories.count
-                    allRepos.repositories.forEach {
-
-                        let repositoryHome = RepositoryHome(
-                            repositoryName: $0.repositoryName,
-                            ownerName: $0.ownerName,
-                            stargazersCount: $0.stargazersCount,
-                            watchersCount: $0.watchersCount,
-                            updatedAt: $0.updatedAt,
-                            forksCount: $0.forksCount
-                        )
-
-                        self.repositories.append(repositoryHome)
-
-                    }
+                    self.onNextMoreRepos(allRepos, repositoriesCount: self.repositoriesCount)
                 }, onCompleted: {
-                    for values in (self.repositories.count - repositoriesCount..<self.repositories.count) {
-
-                        let repositoryView = RepositorioCustomView()
-
-                        repositoryView.imageIcon.image = UIImage(named: "baixo_risco")
-                        repositoryView.repositoryName.text = self.repositories[values].repositoryName
-                        repositoryView.forksCount.text = String(self.repositories[values].forksCount)
-                        repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
-                        repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
-                        repositoryView.lastCommitDataInDays.text = String(self.repositories[values].getLastUpdatedDay())
-
-                        if values.isMultiple(of: 2) {
-                            self.invertBackgroundRepository(repositoryView)
-                        }
-
-                        repositoryView.translatesAutoresizingMaskIntoConstraints = false
-
-                        self.repositoriesStackView.addArrangedSubview(repositoryView)
-
-                        NSLayoutConstraint.activate([
-                            repositoryView.heightAnchor.constraint(equalToConstant: 155),
-                            repositoryView.widthAnchor.constraint(equalTo: self.repositoriesStackView.widthAnchor)
-                        ])
-
-                        repositoryView.addTarget(
-                            self,
-                            action: #selector(self.goToDetails),
-                            for: .touchUpInside
-                        )
-                        self.moreData = false
-                    }
+                    self.onCompletedMoreRepos(self.repositories)
                 }).disposed(by: disposeViewBag)
     }
 
     func initializeReposInHome (
-        repoName: String = "abc",
+        repoName: String,
         _ sort: Repositories.FilterBy = .stars,
         _ order: Repositories.OrderBy = .desc,
         page: Int = 1) {
@@ -187,5 +151,4 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         activityIndicatorView.isHidden = true
     }
-
 }

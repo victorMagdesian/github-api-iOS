@@ -106,4 +106,56 @@ extension HomeViewController {
             repositoryView.addTarget(self, action: #selector(self.goToDetails), for: .touchUpInside)
         }
     }
+
+    func onNextMoreRepos(_ allRepos: Repositories, repositoriesCount: Int) {
+        self.repositoriesCount = allRepos.repositories.count
+        allRepos.repositories.forEach {
+
+            let repositoryHome = RepositoryHome(
+                repositoryName: $0.repositoryName,
+                ownerName: $0.ownerName,
+                stargazersCount: $0.stargazersCount,
+                watchersCount: $0.watchersCount,
+                updatedAt: $0.updatedAt,
+                forksCount: $0.forksCount
+            )
+
+            self.repositories.append(repositoryHome)
+
+        }
+    }
+
+    func onCompletedMoreRepos(_ repositories: [RepositoryHome]) {
+            for values in (self.repositories.count - self.repositoriesCount..<self.repositories.count) {
+
+                let repositoryView = RepositorioCustomView()
+
+                repositoryView.imageIcon.image = UIImage(named: "baixo_risco")
+                repositoryView.repositoryName.text = self.repositories[values].repositoryName
+                repositoryView.forksCount.text = String(self.repositories[values].forksCount)
+                repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
+                repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
+                repositoryView.lastCommitDataInDays.text = String(self.repositories[values].getLastUpdatedDay())
+
+                if values.isMultiple(of: 2) {
+                    self.invertBackgroundRepository(repositoryView)
+                }
+
+                repositoryView.translatesAutoresizingMaskIntoConstraints = false
+
+                self.repositoriesStackView.addArrangedSubview(repositoryView)
+
+                NSLayoutConstraint.activate([
+                    repositoryView.heightAnchor.constraint(equalToConstant: 155),
+                    repositoryView.widthAnchor.constraint(equalTo: self.repositoriesStackView.widthAnchor)
+                ])
+
+                repositoryView.addTarget(
+                    self,
+                    action: #selector(self.goToDetails),
+                    for: .touchUpInside
+                )
+                self.moreData = false
+            }
+    }
 }
