@@ -14,12 +14,13 @@ struct Repositories: Decodable {
         case stars
         case watchers
         case data
+        case defaultFilter = ""
     }
 
     enum OrderBy: String {
         case asc
         case desc
-
+        case defaultFilter = ""
     }
 }
 

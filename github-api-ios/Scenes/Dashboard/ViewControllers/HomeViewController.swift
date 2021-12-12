@@ -32,6 +32,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     var repositoriesCount = 0
 
     var paginationCount = 1
+    var filtersSelected = [String]()
+    var orderFilter: Repositories.OrderBy?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,16 +45,33 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 //                        print(txt)
 //                    })
 
-        initializeReposInHome(repoName: repoName)
-
         if let buttonFilters = coordinator?.filters {
             filterCountLabel.text = String(buttonFilters.count)
+
             buttonFilters.forEach {
                 $0.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
 
                 filtrosHomeStackView.addArrangedSubview($0)
                 filtrosHomeStackView.setCustomSpacing(8, after: $0)
+
+                if let textButton = $0.titleLabel?.text {
+                    filtersSelected.append(textButton)
+                }
             }
+
+            if filtersSelected.contains("CRESCENTE") {
+                orderFilter = .asc
+            } else if filtersSelected.contains("DECRESCENTE") {
+                orderFilter = .desc
+            } else {
+                orderFilter = .defaultFilter
+            }
+
+            initializeReposInHome(
+                repoName: repoName,
+                filtersSelected.contains("ESTRELAS") ? .stars : .defaultFilter,
+                orderFilter ?? .defaultFilter
+            )
         }
 
         filterTextField.delegate = self
@@ -74,6 +93,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction func clearFilters(_ sender: Any) {
         coordinator?.filters.removeAll()
+        filtersSelected.removeAll()
+
         filtrosHomeStackView.subviews.forEach {$0.removeFromSuperview()}
         filterCountLabel.text = "0"
     }
@@ -84,7 +105,11 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
         if offsetY > contentHeight - scrollView.frame.height {
             if !moreData {
-                getMoreRepositories(repoName: repoName)
+                getMoreRepositories(
+                    repoName: repoName,
+                    filtersSelected.contains("ESTRELAS") ? .stars : .defaultFilter,
+                    orderFilter ?? .defaultFilter
+                )
             }
         } else if offsetY < 0 {
             if !reloadData {
@@ -108,7 +133,11 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             view.removeFromSuperview()
         }
         repoName = sender.text!
-        initializeReposInHome(repoName: repoName)
+        initializeReposInHome(
+            repoName: repoName,
+            filtersSelected.contains("ESTRELAS") ? .stars : .defaultFilter,
+            orderFilter ?? .defaultFilter
+        )
 
     }
 
