@@ -52,7 +52,6 @@ class GithubRepository {
         return networkService.execute(url: URL(string: url + "&per_page=10&page=\(page)")!)
     }
 
-
     func getReadme(ownerName: String, repositoryName: String) -> String {
         let urlRequest = URLRequest(url: URL(
             string: "https://raw.githubusercontent.com/\(ownerName)/\(repositoryName)/master/README.md"

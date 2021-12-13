@@ -22,7 +22,7 @@ class NetworkService {
                 "application/json",
                 forHTTPHeaderField: "Content-Type")
 
-            let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, let decoded = try? JSONDecoder().decode(T.self, from: data) else {
                     print("Response: \(String(describing: response)) \n\n\n")
                     print("error on converting data or decoded for \(type(of: T.self))")
