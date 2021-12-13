@@ -4,18 +4,14 @@ import UIKit
 class AppCoordinator: Coordinator {
     let window: UIWindow?
 
-    var viewController = FiltroViewController()
-
     var navController: UINavigationController = {
         let nav = UINavigationController()
-        nav.pushViewController(HomeViewController(), animated: true)
         nav.setNavigationBarHidden(true, animated: false)
         return nav
     }()
 
     init(window: UIWindow?) {
         self.window = window
-
     }
 
     override func start() {

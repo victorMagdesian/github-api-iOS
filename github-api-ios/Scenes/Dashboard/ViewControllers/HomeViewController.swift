@@ -28,69 +28,43 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     let disposeViewBag = DisposeBag()
 
     var repositories = [RepositoryHome]()
+    var repoName: String = "abc"
+    var repositoriesCount = 0
 
     var paginationCount = 1
+    var filtersSelected = [String]()
+    var orderFilter: Repositories.OrderBy?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        githubRepository.getRepositories()
-            .observe(on: MainScheduler.instance)
-            .subscribe(
-                onNext: { (allRepos: Repositories) in
-                    allRepos.repositories.forEach {
-
-                        let repositoryHome = RepositoryHome(
-                            repositoryName: $0.repositoryName,
-                            ownerName: $0.ownerName,
-                            stargazersCount: $0.stargazersCount,
-                            watchersCount: $0.watchersCount,
-                            updatedAt: $0.updatedAt,
-                            forksCount: $0.forksCount
-                        )
-                        self.repositories.append(repositoryHome)
-                    }
-                }, onCompleted: {
-                    for values in (0..<self.repositories.count) {
-
-                        let repositoryView = RepositorioCustomView()
-
-                        repositoryView.imageIcon.image = UIImage(named: "baixo_risco")
-                        repositoryView.repositoryName.text = self.repositories[values].repositoryName
-                        repositoryView.forksCount.text = String(self.repositories[values].forksCount)
-                        repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
-                        repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
-
-                        repositoryView.lastCommitDataInDays.text = self.repositories[values].getLastUpdatedDay() == 0 ? "Today" : String(self.repositories[values].getLastUpdatedDay())
-
-                        repositoryView.ownerName = self.repositories[values].ownerName
-
-                        if values.isMultiple(of: 2) {
-                            self.invertBackgroundRepository(repositoryView)
-                        }
-
-                        repositoryView.translatesAutoresizingMaskIntoConstraints = false
-                        self.repositoriesStackView.addArrangedSubview(repositoryView)
-
-                        NSLayoutConstraint.activate([
-                            repositoryView.heightAnchor.constraint(equalToConstant: 155),
-                            repositoryView.widthAnchor.constraint(equalTo: self.repositoriesStackView.widthAnchor)
-                        ])
-                        repositoryView.addTarget(self, action: #selector(self.goToDetails), for: .touchUpInside)
-                    }
-                }).disposed(by: disposeViewBag)
-
-        activityIndicatorView.isHidden = true
-
         if let buttonFilters = coordinator?.filters {
             filterCountLabel.text = String(buttonFilters.count)
-            print("AAEIOU\(buttonFilters)")
+
             buttonFilters.forEach {
                 $0.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
 
                 filtrosHomeStackView.addArrangedSubview($0)
                 filtrosHomeStackView.setCustomSpacing(8, after: $0)
+
+                if let textButton = $0.titleLabel?.text {
+                    filtersSelected.append(textButton)
+                }
             }
+
+            if filtersSelected.contains("CRESCENTE") {
+                orderFilter = .asc
+            } else if filtersSelected.contains("DECRESCENTE") {
+                orderFilter = .desc
+            } else {
+                orderFilter = .defaultFilter
+            }
+
+            initializeReposInHome(
+                repoName: repoName,
+                filtersSelected.contains("ESTRELAS") ? .stars : .defaultFilter,
+                orderFilter ?? .defaultFilter
+            )
         }
 
         filterTextField.delegate = self
@@ -102,12 +76,18 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         coordinator?.filtro()
     }
 
+    @objc func goToDetails(_ sender: RepositorioCustomView) {
+        coordinator?.details(sender)
+    }
+
     @IBAction func focusFilterTextField(_ sender: Any) {
         filterTextField.becomeFirstResponder()
     }
 
     @IBAction func clearFilters(_ sender: Any) {
         coordinator?.filters.removeAll()
+        filtersSelected.removeAll()
+
         filtrosHomeStackView.subviews.forEach {$0.removeFromSuperview()}
         filterCountLabel.text = "0"
     }
@@ -116,11 +96,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
 
-//        print("offsetY: \(offsetY) || contentHeight: \(contentHeight)")
-
         if offsetY > contentHeight - scrollView.frame.height {
             if !moreData {
-                getMoreRepositories()
+                getMoreRepositories(
+                    repoName: repoName,
+                    filtersSelected.contains("ESTRELAS") ? .stars : .defaultFilter,
+                    orderFilter ?? .defaultFilter
+                )
             }
         } else if offsetY < 0 {
             if !reloadData {
@@ -131,145 +113,64 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     func refreshData() {
         reloadData = true
-        print("Reload dos dados")
-
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//            repositories = carregarDados()  Fazer uma nova requisição da API considerando os filtros da home
-            print("atualizadoo\n")
             self.reloadData = false
 
         })
     }
 
-    func getMoreRepositories() {
-        moreData = true
-        print("Pegando mais dado..")
+    @IBAction func searchByName(_ sender: UITextField) {
+        self.repositories.removeAll()
 
+        for view in repositoriesStackView.arrangedSubviews {
+            view.removeFromSuperview()
+        }
+        repoName = sender.text!
+        initializeReposInHome(
+            repoName: repoName,
+            filtersSelected.contains("ESTRELAS") ? .stars : .defaultFilter,
+            orderFilter ?? .defaultFilter
+        )
+
+    }
+
+    func getMoreRepositories(
+        repoName: String,
+        _ sort: Repositories.FilterBy = .stars,
+        _ order: Repositories.OrderBy = .desc,
+        page: Int = 1) {
+
+        moreData = true
         paginationCount += 1
 
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//         let newRepositories = Requisição pro git pegando os próximos n repositórios
-//            self.repositories.append(newRepositories)
-//            print("++ dados\n")
-//            self.moreData = false
-//           self.repositoriesStackView.reloadInputViews() // ele usou um self.tableView.reloadData()
-//        })
-        var repositoriesCount = 0
-
-        githubRepository.getRepositories(page: paginationCount)
+        githubRepository.getRepositoriesByName(
+            repositoryName: repoName, sort: sort, order: order, page: paginationCount)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { (allRepos: Repositories) in
-                    repositoriesCount = allRepos.repositories.count
-                    allRepos.repositories.forEach {
-
-                        let repositoryHome = RepositoryHome(
-                            repositoryName: $0.repositoryName,
-                            ownerName: $0.ownerName,
-                            stargazersCount: $0.stargazersCount,
-                            watchersCount: $0.watchersCount,
-                            updatedAt: $0.updatedAt,
-                            forksCount: $0.forksCount
-                        )
-
-                        self.repositories.append(repositoryHome)
-
-                    }
+                    self.onNextMoreRepos(allRepos, repositoriesCount: self.repositoriesCount)
                 }, onCompleted: {
-                    for values in (self.repositories.count - repositoriesCount..<self.repositories.count) {
-
-                        let repositoryView = RepositorioCustomView()
-
-                        repositoryView.imageIcon.image = UIImage(named: "baixo_risco")
-                        repositoryView.repositoryName.text = self.repositories[values].repositoryName
-                        repositoryView.forksCount.text = String(self.repositories[values].forksCount)
-                        repositoryView.stargazingCount.text = String(self.repositories[values].stargazersCount)
-                        repositoryView.followersCount.text = String(self.repositories[values].watchersCount)
-                        repositoryView.lastCommitDataInDays.text = String(self.repositories[values].getLastUpdatedDay())
-
-                        if values.isMultiple(of: 2) {
-                            self.invertBackgroundRepository(repositoryView)
-                        }
-
-                        repositoryView.translatesAutoresizingMaskIntoConstraints = false
-
-                        self.repositoriesStackView.addArrangedSubview(repositoryView)
-
-                        NSLayoutConstraint.activate([
-                            repositoryView.heightAnchor.constraint(equalToConstant: 155),
-                            repositoryView.widthAnchor.constraint(equalTo: self.repositoriesStackView.widthAnchor)
-                        ])
-
-                        repositoryView.addTarget(
-                            self,
-                            action: #selector(self.goToDetails),
-                            for: .touchUpInside
-                        )
-                        self.moreData = false
-                    }
+                    self.onCompletedMoreRepos(self.repositories)
                 }).disposed(by: disposeViewBag)
     }
-}
 
-extension HomeViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        activityIndicatorView.isHidden = false
-    }
+    func initializeReposInHome (
+        repoName: String,
+        _ sort: Repositories.FilterBy = .stars,
+        _ order: Repositories.OrderBy = .desc,
+        page: Int = 1) {
 
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        activityIndicatorView.isHidden = false
+        githubRepository.getRepositoriesByName(
+            repositoryName: repoName, sort: sort, order: order, page: page)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onNext: { (allRepos: Repositories) in
+                    self.onNextFirstTime(allRepos)
 
-    }
+                }, onCompleted: {
+                    self.onCompletedFirstTime(self.repositories)
+                }).disposed(by: disposeViewBag)
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        filterTextField.endEditing(true)
-        super.touchesBegan(touches, with: event)
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
         activityIndicatorView.isHidden = true
-    }
-
-}
-
-extension HomeViewController {
-    @objc private func removeFilter(_ sender: UIButton) {
-        sender.isSelected = false
-
-        guard let indexButton = coordinator?.filters.firstIndex(of: sender) else {
-            return
-        }
-
-        coordinator?.filters.remove(at: indexButton)
-
-        guard let countFilters = coordinator?.filters.count else { return }
-
-        filterCountLabel.text = String(countFilters)
-
-        UIView.animate(withDuration: 0.4, delay: 0, options: []) {
-            sender.transform = CGAffineTransform(translationX: 0, y: 20)
-            sender.alpha = 0
-        } completion: { _ in
-            sender.removeFromSuperview()
-        }
-    }
-
-    private func invertBackgroundRepository(_ repositoryView: RepositorioCustomView) {
-        repositoryView.topView.backgroundColor = .white
-
-        repositoryView.bottomView.backgroundColor = UIColor(
-            red: CGFloat(126)/CGFloat(255),
-            green: CGFloat(126)/CGFloat(255),
-            blue: CGFloat(126)/CGFloat(255),
-            alpha: 1
-        )
-
-        repositoryView.totalStarsLabel.textColor = .black
-        repositoryView.repositoryName.textColor = .black
-        repositoryView.stargazingCount.textColor = .black
-    }
-
-    @objc func goToDetails(_ sender: RepositorioCustomView) {
-        coordinator?.details(sender)
     }
 }

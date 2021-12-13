@@ -6,11 +6,21 @@
   > O nosso objetivo foi construir uma aplicação iOS usando Swift para consumir a API do GitHub seguindo o escopo do desafio do Banco Modal.
 
 ## Escopo do Projeto 🖥️
-O app deve mostrar os principais repositórios e criar um filtro por estrelas, seguidores e data do ultimo commit.
+-   View da Home 🆗
+-   View de Filtro 🆗
+-   View de Detalhes 🆗
+-   Fazer uma busca por nome do repositório 🆗  
+-   Criar um filtro por estrelas, seguidores e data do último commit❗
+> O filtro por estrela funciona corretamente. Entretanto, não encontramos um endpoint que retorna os dados ordenados por seguidores ou pela data do último commit. Além disso, não tivemos contato com a utilização de APIs em swift, o que atrasou a implementação de requests HTTP. Uma solução seria receber todos os dados da busca por nome e ordená-los por seguidores ou data do último commit dentro da aplicação.
+-   Mostrar ícone e informações básicas do repo 🆗
+-   Paginação com rolagem infinita 🆗
+-   Puxe para atualizar a lista de repositórios 🆗
+-  Autenticação da API do GitHub❗
+> Utilizamos um Personal Access Token para aumentarmos o limite de requisições para a API do GitHub. O ideal seria utilizar o GitHub Apps, mas não tivemos tempo de estudá-la e implementá-la.
 
--   Mostrar ícone e informações básicas do repo.
--   Paginação com rolagem infinita.
--   Puxe para atualizar a lista de pedidos.
+> ‼️ OBS: Removemos o Personal Access Token para que o app fosse utilizável por alguém sem o token, entretanto isso reduziu consideravelmente o número de requests que a aplicação pode fazer. ‼️
+-  ViewModels❗
+> Não conheciámos o RxSwift e nem o MVVM-C, então tivemos dificuldade em implementá-los adequadamente.
 
 ## Telas  🏠🔖🔍
 ![telas](telas.png)
@@ -26,27 +36,27 @@ O app deve mostrar os principais repositórios e criar um filtro por estrelas, s
 
 ## Requisitos 🧾
 
-- Higher Order Functions;
-- Autolayout;
-- MVVM-C;
-- Xib - Não use Storyboard ou ViewCode;
-- Xcode 13.1+;
-- iOS 13.0+;
-- Swift 5+;
-- Swiftlint;
-- SPM;
-- RxSwift – Única framework a ser adicionada no projeto;
+- Higher Order Functions ☑️
+- Autolayout ☑️
+- MVVM-C ☑️
+- Xib - Não use Storyboard ou ViewCode ☑️
+- Xcode 13.1+ ☑️
+- iOS 13.0+ ☑️
+- Swift 5+ ☑️
+- Swiftlint ☑️
+- SPM ☑️
+- RxSwift – Única framework a ser adicionada no projeto ☑️
 
 ## Plus ➕
 
-- Unit/UI Tests XCTests;
-- Componentes customizados;
-- Fonte customizadas;
-- l10n;
+- Unit/UI Tests XCTests
+- Componentes customizados
+- Fonte customizadas
+- l10n
 
 ## PlusPlus ➕➕
 
-- Faça tudo usando SwiftUI com Combine.
+- Faça tudo usando SwiftUI com Combine
 
 ## Entrega e Prazo 📅
 
